@@ -4,8 +4,8 @@ import Navbar from './components/navbar';
 import Footer from './components/footer';
 
 export const metadata = {
-  title: 'My App',
-  description: 'A beautiful Next.js app',
+  title: 'M-Securities',
+  description: 'M-Securities is a financial services company that provides secure, reliable, and flexible investment solutions tailored to meet your financial goals.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
