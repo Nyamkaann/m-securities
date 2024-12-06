@@ -10,7 +10,7 @@ interface ButtonProps {
       <button
         type={type}
         onClick={onClick}
-        className="bg-teal-500 text-white py-2 px-6 rounded-lg shadow-md hover:bg-teal-600"
+        className="w-full sm:w-auto bg-teal-500 text-white py-2 px-4 sm:px-6 rounded-lg shadow-md hover:bg-teal-600 text-sm sm:text-base"
       >
         {label}
       </button>

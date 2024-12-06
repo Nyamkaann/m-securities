@@ -6,11 +6,11 @@ const Footer = () => {
     <footer className="bg-white shadow-md py-8">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Left: Logo */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-center sm:items-start">
           <Link href="/">
-            <img src="/logo.png" alt="Logo" className="h-12" />
+            <img src="/logo.png" alt="Logo" className="h-8 md:h-12" />
           </Link>
-          <p className="text-gray-600 mt-2">Your company tagline or short description.</p>
+          <p className="text-gray-600 mt-2 text-center sm:text-left">Your company tagline or short description.</p>
         </div>
 
         {/* Center: Links */}
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-gray-100 py-4 mt-8 text-center text-gray-600">
+      <div className="bg-gray-100 py-4 mt-8 text-center text-gray-600 text-sm md:text-base">
         <p>&copy; 2024 Your Company. All Rights Reserved.</p>
       </div>
     </footer>
