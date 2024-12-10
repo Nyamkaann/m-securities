@@ -1,6 +1,8 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
+import LanguageSwitcher from './language-switcher';
+import DarkModeToggle from './dark-mode-toggle';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -125,7 +127,6 @@ const Navbar = () => {
                   ? 'opacity-100 visible translate-y-0' 
                   : 'opacity-0 invisible -translate-y-2'
               }`}>
-                <Link href="/faq?section=faqs" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>FAQs</Link>
                 <Link href="/faq?section=common-questions" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Common Questions</Link>
                 <Link href="/faq?section=open-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Open an Account</Link>
                 <Link href="/faq?section=manage-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Manage Your Account Online</Link>
@@ -142,22 +143,8 @@ const Navbar = () => {
                 TRADE
               </button>
             </Link>
-            <button className="flex items-center justify-center w-10 h-10 rounded-full 
-                             bg-gray-100 hover:bg-gray-200 transition duration-300 group">
-              <svg 
-                className="w-5 h-5 text-gray-600 group-hover:text-gray-800" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                />
-              </svg>
-            </button>
+            <LanguageSwitcher />
+            <DarkModeToggle />
           </div>
         </div>
 
@@ -187,7 +174,6 @@ const Navbar = () => {
             </div>
             <div className="space-y-2">
               <div className="text-gray-800 text-lg font-semibold">FAQs</div>
-              <Link href="/faq?section=faqs" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>FAQs</Link>
               <Link href="/faq?section=common-questions" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Common Questions</Link>
               <Link href="/faq?section=open-account" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Open an Account</Link>
               <Link href="/faq?section=manage-account" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Manage Your Account Online</Link>
@@ -198,6 +184,12 @@ const Navbar = () => {
                 TRADE
               </button>
             </Link>
+          </div>
+
+          {/* Add dark mode toggle to mobile menu */}
+          <div className="mt-4 flex items-center justify-between px-4">
+            <DarkModeToggle />
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
