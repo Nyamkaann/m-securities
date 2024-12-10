@@ -2,24 +2,29 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import Carousel from './components/carousel';
 
 export default function Home() {
+  const carouselImages = [
+    {
+      url: "/images/slide1.jpg",
+      alt: "Investment Portfolio",
+    },
+    {
+      url: "/images/slide2.jpg",
+      alt: "Trading Platform",
+    },
+    {
+      url: "/images/slide3.jpg",
+      alt: "Market Analysis",
+    }
+  ];
+
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: 'url("/hero-bg.jpg")' }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="flex items-center justify-center h-full">
-          <div className="text-center text-white px-6 md:px-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Invest in Your Future with Trusted Security Solutions</h1>
-            <p className="text-lg md:text-xl mb-6">Our platform offers a range of financial services, including secure trading, investment strategies, and risk management.</p>
-            <Link href="/signup">
-              <button className="bg-teal-500 text-white px-8 py-3 rounded-md font-semibold hover:bg-teal-600 transition duration-300">
-                Start Investing
-              </button>
-            </Link>
-          </div>
-        </div>
+    <div className="min-h-screen">
+      {/* Hero Section with Carousel */}
+      <section className="relative h-screen">
+        <Carousel images={carouselImages} autoPlayInterval={6000} />
       </section>
 
       {/* About Section */}

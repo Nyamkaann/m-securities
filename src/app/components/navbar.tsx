@@ -137,12 +137,26 @@ const Navbar = () => {
           {/* Desktop Right Section */}
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/trade">
-              <button className="bg-teal-500 text-gray-800 px-6 py-3 rounded-md font-semibold hover:bg-teal-600 transition duration-300 text-lg">
+              <button className="bg-teal-500 text-white px-6 py-3 rounded-md font-semibold 
+                               hover:bg-teal-600 transition duration-300 text-lg">
                 TRADE
               </button>
             </Link>
-            <button className="bg-teal-500 p-2 rounded-full hover:bg-teal-600 transition duration-300">
-              <img src="/globe_icon.svg" alt="Change Language" className="h-6 w-6" />
+            <button className="flex items-center justify-center w-10 h-10 rounded-full 
+                             bg-gray-100 hover:bg-gray-200 transition duration-300 group">
+              <svg 
+                className="w-5 h-5 text-gray-600 group-hover:text-gray-800" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                />
+              </svg>
             </button>
           </div>
         </div>
