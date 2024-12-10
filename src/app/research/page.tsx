@@ -1,49 +1,40 @@
 // src/app/research/page.tsx
-import Link from "next/link";
+'use client';
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
-const Research = () => {
-  const charts = [
-    { id: 1, src: "/charts/chart1.png", title: "Market Trends Q1" },
-    { id: 2, src: "/charts/chart2.png", title: "Key Performance Indicators" },
-  ];
+export default function Research() {
+  const searchParams = useSearchParams();
 
-  const reports = [
-    { id: 1, title: "Market Analysis 2024", link: "/reports/market-analysis-2024.pdf" },
-    { id: 2, title: "Industry Insights Q2", link: "/reports/industry-insights-q2.pdf" },
-  ];
+  useEffect(() => {
+    const section = searchParams.get('section');
+    if (section) {
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [searchParams]);
 
   return (
-    <div className="max-w-5xl mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold text-center mb-6">Research</h1>
-
-      {/* Charts and Infographics */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Static Charts and Infographics</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {charts.map((chart) => (
-            <div key={chart.id} className="border rounded-lg p-4 shadow-md">
-              <img src={chart.src} alt={chart.title} className="w-full h-48 object-cover rounded-md mb-2" />
-              <h3 className="text-lg font-semibold">{chart.title}</h3>
-            </div>
-          ))}
-        </div>
+    <div className="py-20 px-4 max-w-4xl mx-auto">
+      <h1 className="text-4xl font-bold text-teal-500 text-center mb-16">Research</h1>
+      
+      <section id="news" className="mb-16 scroll-mt-20">
+        <h2 className="text-2xl font-semibold text-teal-500 mb-4">News</h2>
+        <p className="text-gray-700">
+          Stay updated with the latest market news and developments. Our news section provides real-time updates on market trends, company announcements, and economic indicators that impact your investment decisions.
+        </p>
       </section>
 
-      {/* Downloadable Reports */}
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Downloadable Reports</h2>
-        <ul className="list-disc pl-6">
-          {reports.map((report) => (
-            <li key={report.id} className="mb-2">
-              <Link href={report.link} className="text-teal-500 hover:underline">
-                {report.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <section id="analysis" className="mb-16 scroll-mt-20">
+        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Analysis</h2>
+        <p className="text-gray-700">
+          Access comprehensive market analysis and research reports from our expert analysts. We provide detailed insights into market trends, sector analysis, and investment opportunities to help you make informed decisions.
+        </p>
       </section>
     </div>
   );
-};
-
-export default Research;
+}

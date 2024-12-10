@@ -2,6 +2,12 @@
 import './styles/globals.css';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
+import { Nunito } from 'next/font/google';
+
+const nunito = Nunito({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'M-Securities',
@@ -10,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={nunito.className}>
       <body>
         <Navbar /> {/* Navbar is here */}
         <main className="min-h-screen">{children}</main>

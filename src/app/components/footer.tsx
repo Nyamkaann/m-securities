@@ -33,13 +33,13 @@ const Footer = () => {
         {/* Bottom: Contact Info */}
         <div className="flex flex-col space-y-4">
           <h4 className="text-lg font-semibold text-gray-800">Contact Us</h4>
-          <p className="text-gray-600">Email: info@yourcompany.com</p>
-          <p className="text-gray-600">Phone: +1 (123) 456-7890</p>
+          <p className="text-gray-600">Email: info@msecurities.mn</p>
+          <p className="text-gray-600">Phone: +976 9982-0776 </p>
         </div>
       </div>
 
       <div className="bg-gray-100 py-4 mt-8 text-center text-gray-600 text-sm md:text-base">
-        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+        <p>&copy; 2024 M Securities. All Rights Reserved.</p>
       </div>
     </footer>
   );

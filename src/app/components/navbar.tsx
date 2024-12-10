@@ -1,12 +1,57 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  // Handle click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleDropdownClick = (dropdownName: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
+
+  const handleLinkClick = () => {
+    setActiveDropdown(null);
+    setIsMenuOpen(false);
+  };
+
+  // Function to create dropdown button
+  const renderDropdownButton = (name: string, label: string) => (
+    <button
+      onClick={(e) => handleDropdownClick(name, e)}
+      className="text-gray-800 hover:text-teal-500 text-lg font-semibold flex items-center"
+    >
+      {label}
+      <svg 
+        className={`w-4 h-4 ml-1 transform transition-transform duration-200 ${activeDropdown === name ? 'rotate-180' : ''}`} 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  );
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md" ref={navRef}>
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Left: Logo */}
@@ -28,18 +73,65 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            <Link href="/about" className="text-gray-800 hover:text-teal-500 text-lg font-semibold">
-              About Us
-            </Link>
-            <Link href="/services" className="text-gray-800 hover:text-teal-500 text-lg font-semibold">
-              Services
-            </Link>
-            <Link href="/research" className="text-gray-800 hover:text-teal-500 text-lg font-semibold">
-              Research
-            </Link>
-            <Link href="/faq" className="text-gray-800 hover:text-teal-500 text-lg font-semibold">
-              FAQs
-            </Link>
+            <div className="relative group">
+              {renderDropdownButton('about', 'About Us')}
+              <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
+                activeDropdown === 'about' 
+                  ? 'opacity-100 visible translate-y-0' 
+                  : 'opacity-0 invisible -translate-y-2'
+              }`}>
+                <Link href="/about?section=introduction" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Introduction</Link>
+                <Link href="/about?section=goal" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Goal</Link>
+                <Link href="/about?section=objective" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Objective</Link>
+                <Link href="/about?section=vision" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Vision</Link>
+                <Link href="/about?section=values" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Values</Link>
+              </div>
+            </div>
+
+            {/* Services Dropdown */}
+            <div className="relative group">
+              {renderDropdownButton('services', 'Services')}
+              <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
+                activeDropdown === 'services' 
+                  ? 'opacity-100 visible translate-y-0' 
+                  : 'opacity-0 invisible -translate-y-2'
+              }`}>
+                <Link href="/services?section=feedback" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Feedback</Link>
+                <Link href="/services?section=broker" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Broker</Link>
+                <Link href="/services?section=underwriter" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Underwriter</Link>
+                <Link href="/services?section=investment-advisor" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Investment Advisor</Link>
+                <Link href="/services?section=mining-broker" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Mining Broker</Link>
+              </div>
+            </div>
+
+            {/* Research Dropdown */}
+            <div className="relative group">
+              {renderDropdownButton('research', 'Research')}
+              <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
+                activeDropdown === 'research' 
+                  ? 'opacity-100 visible translate-y-0' 
+                  : 'opacity-0 invisible -translate-y-2'
+              }`}>
+                <Link href="/research?section=news" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>News</Link>
+                <Link href="/research?section=analysis" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Analysis</Link>
+              </div>
+            </div>
+
+            {/* FAQs Dropdown */}
+            <div className="relative group">
+              {renderDropdownButton('faqs', 'FAQs')}
+              <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
+                activeDropdown === 'faqs' 
+                  ? 'opacity-100 visible translate-y-0' 
+                  : 'opacity-0 invisible -translate-y-2'
+              }`}>
+                <Link href="/faq?section=faqs" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>FAQs</Link>
+                <Link href="/faq?section=common-questions" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Common Questions</Link>
+                <Link href="/faq?section=open-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Open an Account</Link>
+                <Link href="/faq?section=manage-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Manage Your Account Online</Link>
+                <Link href="/faq?section=contact" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Contact Us</Link>
+              </div>
+            </div>
           </div>
 
           {/* Desktop Right Section */}
@@ -58,18 +150,35 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden mt-4`}>
           <div className="flex flex-col space-y-4">
-            <Link href="/about" className="text-gray-800 hover:text-teal-500 text-lg font-semibold">
-              About Us
-            </Link>
-            <Link href="/services" className="text-gray-800 hover:text-teal-500 text-lg font-semibold">
-              Services
-            </Link>
-            <Link href="/research" className="text-gray-800 hover:text-teal-500 text-lg font-semibold">
-              Research
-            </Link>
-            <Link href="/faq" className="text-gray-800 hover:text-teal-500 text-lg font-semibold">
-              FAQs
-            </Link>
+            <div className="space-y-2">
+              <div className="text-gray-800 text-lg font-semibold">About Us</div>
+              <Link href="/about?section=introduction" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Introduction</Link>
+              <Link href="/about?section=goal" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Goal</Link>
+              <Link href="/about?section=objective" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Objective</Link>
+              <Link href="/about?section=vision" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Vision</Link>
+              <Link href="/about?section=values" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Values</Link>
+            </div>
+            <div className="space-y-2">
+              <div className="text-gray-800 text-lg font-semibold">Services</div>
+              <Link href="/services?section=feedback" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Feedback</Link>
+              <Link href="/services?section=broker" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Broker</Link>
+              <Link href="/services?section=underwriter" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Underwriter</Link>
+              <Link href="/services?section=investment-advisor" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Investment Advisor</Link>
+              <Link href="/services?section=mining-broker" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Mining Broker</Link>
+            </div>
+            <div className="space-y-2">
+              <div className="text-gray-800 text-lg font-semibold">Research</div>
+              <Link href="/research?section=news" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>News</Link>
+              <Link href="/research?section=analysis" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Analysis</Link>
+            </div>
+            <div className="space-y-2">
+              <div className="text-gray-800 text-lg font-semibold">FAQs</div>
+              <Link href="/faq?section=faqs" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>FAQs</Link>
+              <Link href="/faq?section=common-questions" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Common Questions</Link>
+              <Link href="/faq?section=open-account" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Open an Account</Link>
+              <Link href="/faq?section=manage-account" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Manage Your Account Online</Link>
+              <Link href="/faq?section=contact" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Contact Us</Link>
+            </div>
             <Link href="/trade">
               <button className="w-full bg-teal-500 text-gray-800 px-6 py-3 rounded-md font-semibold hover:bg-teal-600 transition duration-300 text-lg">
                 TRADE
