@@ -2,50 +2,73 @@
 'use client';
 import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
+import { useDarkMode } from '../context/DarkModeContext';
 
 const Footer = () => {
   const { t } = useLanguage();
+  const { isDarkMode } = useDarkMode();
 
   return (
-    <footer className="bg-white shadow-md py-8">
+    <footer className="bg-white dark:bg-[#26282c] shadow-md py-8 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Left: Logo */}
         <div className="flex flex-col items-center sm:items-start">
-          <Link href="/">
-            <img src="/logo.png" alt="Logo" className="h-8 md:h-12" />
+          <Link href="/" className="flex items-center">
+            <img 
+              src={isDarkMode ? "/logo-dark.png" : "/logo.png"} 
+              alt="Logo" 
+              className="h-8 md:h-10 w-auto object-contain transition-opacity duration-200" 
+              style={{ minWidth: '180px' }}
+            />
           </Link>
-          <p className="text-gray-600 mt-2 text-center sm:text-left">
+          <p className="text-gray-600 dark:text-gray-300 mt-2 text-center sm:text-left">
             {t('footer.tagline')}
           </p>
         </div>
 
         {/* Quick Links */}
         <div className="flex flex-col space-y-4">
-          <h4 className="text-lg font-semibold text-gray-800">{t('footer.quickLinks')}</h4>
-          <Link href="/about" className="text-gray-600 hover:text-teal-500 transition-colors">
+          <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+            {t('footer.quickLinks')}
+          </h4>
+          <Link 
+            href="/about" 
+            className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+          >
             {t('navbar.about')}
           </Link>
-          <Link href="/services" className="text-gray-600 hover:text-teal-500 transition-colors">
+          <Link 
+            href="/services" 
+            className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+          >
             {t('navbar.services')}
           </Link>
-          <Link href="/research" className="text-gray-600 hover:text-teal-500 transition-colors">
+          <Link 
+            href="/research" 
+            className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+          >
             {t('navbar.research')}
           </Link>
-          <Link href="/faq" className="text-gray-600 hover:text-teal-500 transition-colors">
+          <Link 
+            href="/faq" 
+            className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
+          >
             {t('navbar.faqs')}
           </Link>
         </div>
 
         {/* Social Links */}
         <div className="flex flex-col space-y-4">
-          <h4 className="text-lg font-semibold text-gray-800">{t('footer.followUs')}</h4>
+          <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+            {t('footer.followUs')}
+          </h4>
           <div className="flex space-x-4">
             {/* X (Twitter) */}
             <Link 
               href="https://x.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-teal-500 transition-colors"
+              className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               aria-label={t('footer.socialLinks.twitter')}
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -58,7 +81,7 @@ const Footer = () => {
               href="https://instagram.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-teal-500 transition-colors"
+              className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               aria-label={t('footer.socialLinks.instagram')}
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -71,7 +94,7 @@ const Footer = () => {
               href="https://linkedin.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-teal-500 transition-colors"
+              className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               aria-label={t('footer.socialLinks.linkedin')}
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +107,7 @@ const Footer = () => {
               href="https://facebook.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-teal-500 transition-colors"
+              className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               aria-label={t('footer.socialLinks.facebook')}
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -96,15 +119,18 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div className="flex flex-col space-y-4">
-          <h4 className="text-lg font-semibold text-gray-800">{t('footer.contactUs.title')}</h4>
+          <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+            {t('footer.contactUs.title')}
+          </h4>
           
           {/* Email Link */}
           <Link 
             href="mailto:info@msecurities.mn"
-            className="flex items-center space-x-2 text-gray-600 hover:text-teal-500 transition-colors group"
+            className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 
+                     hover:text-teal-500 dark:hover:text-teal-400 transition-colors group"
           >
             <svg 
-              className="w-5 h-5 group-hover:text-teal-500 transition-colors" 
+              className="w-5 h-5 group-hover:text-teal-500 dark:group-hover:text-teal-400 transition-colors" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
@@ -124,29 +150,34 @@ const Footer = () => {
 
           {/* Phone Links */}
           <div className="flex flex-col space-y-2">
-            <span className="font-medium text-gray-700">{t('footer.contactUs.phone.label')}:</span>
-            {t('footer.contactUs.phone.numbers').map((number, index) => (
-              <Link 
-                key={number}
-                href={`tel:${number}`}
-                className="flex items-center space-x-2 text-gray-600 hover:text-teal-500 transition-colors group"
-              >
-                <svg 
-                  className="w-5 h-5 group-hover:text-teal-500 transition-colors" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" 
-                  />
-                </svg>
-                <span className="hover:underline">{number}</span>
-              </Link>
-            ))}
+            <span className="font-medium text-gray-700 dark:text-gray-200">
+              {t('footer.contactUs.phone.label')}:
+            </span>
+            {typeof t('footer.contactUs.phone.numbers') === 'object' && t('footer.contactUs.phone.numbers')
+              ? t('footer.contactUs.phone.numbers').map((number: string) => (
+                  <Link 
+                    key={number}
+                    href={`tel:${number}`}
+                    className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 
+                             hover:text-teal-500 dark:hover:text-teal-400 transition-colors group"
+                  >
+                    <svg 
+                      className="w-5 h-5 group-hover:text-teal-500 dark:group-hover:text-teal-400 transition-colors" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" 
+                      />
+                    </svg>
+                    <span className="hover:underline">{number}</span>
+                  </Link>
+                ))
+              : null}
           </div>
 
           {/* Location Link */}
@@ -154,10 +185,11 @@ const Footer = () => {
             href="https://maps.google.com/?q=M+Securities"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 text-gray-600 hover:text-teal-500 transition-colors group"
+            className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 
+                     hover:text-teal-500 dark:hover:text-teal-400 transition-colors group"
           >
             <svg 
-              className="w-5 h-5 group-hover:text-teal-500 transition-colors" 
+              className="w-5 h-5 group-hover:text-teal-500 dark:group-hover:text-teal-400 transition-colors" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
@@ -181,8 +213,8 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <div className="mt-8 pt-8 border-t border-gray-200">
-        <p className="text-center text-gray-600 text-sm">
+      <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+        <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
           &copy; {new Date().getFullYear()} M Securities. {t('footer.copyright')}
         </p>
       </div>

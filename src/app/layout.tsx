@@ -4,6 +4,7 @@ import Navbar from './components/navbar';
 import Footer from './components/footer';
 import { Nunito } from 'next/font/google';
 import { LanguageProvider } from './context/LanguageContext';
+import { DarkModeProvider } from './context/DarkModeContext';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -11,19 +12,31 @@ const nunito = Nunito({
 });
 
 export const metadata = {
-  title: 'M-Securities',
-  description: 'M-Securities is a financial services company that provides secure, reliable, and flexible investment solutions tailored to meet your financial goals.',
+  title: 'M Securities',
+  description: 'M Securities is a financial services company that provides secure, reliable, and flexible investment solutions tailored to meet your financial goals.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={nunito.className}>
+      <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body>
-        <LanguageProvider>
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <DarkModeProvider>
+          <LanguageProvider>
+            <Navbar />
+            <main className="min-h-screen dark:bg-[#26282c] transition-colors duration-200">
+              {children}
+            </main>
+            <Footer />
+          </LanguageProvider>
+        </DarkModeProvider>
       </body>
     </html>
   );

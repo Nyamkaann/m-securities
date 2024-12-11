@@ -12,9 +12,9 @@ interface ResearchSectionProps {
 
 const ResearchSection = ({ title, description, id }: ResearchSectionProps) => (
   <section id={id} className="mb-16 scroll-mt-20">
-    <div className="bg-gray-50 p-6 rounded-lg">
+    <div className="bg-white dark:bg-[#26282c] p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
       <h2 className="text-2xl font-semibold text-teal-500 mb-4">{title}</h2>
-      <p className="text-gray-700">{description}</p>
+      <p className="text-gray-700 dark:text-gray-300">{description}</p>
     </div>
   </section>
 );

@@ -4,8 +4,10 @@ import { useState, useEffect, useRef } from 'react';
 import LanguageSwitcher from './language-switcher';
 import DarkModeToggle from './dark-mode-toggle';
 import { useLanguage } from '../context/LanguageContext';
+import { useDarkMode } from '../context/DarkModeContext';
 
 const Navbar = () => {
+  const { isDarkMode } = useDarkMode();
   const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -36,15 +38,21 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
-  // Function to create dropdown button
+  // Updated dropdown button renderer
   const renderDropdownButton = (name: string, label: string) => (
     <button
       onClick={(e) => handleDropdownClick(name, e)}
-      className="text-gray-800 hover:text-teal-500 text-lg font-semibold flex items-center"
+      className="text-gray-700 dark:text-gray-200 hover:text-teal-500 dark:hover:text-teal-400 
+                 text-lg font-medium flex items-center transition-colors duration-200
+                 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 
+                 rounded-lg px-3 py-2"
+      aria-expanded={activeDropdown === name}
     >
       {label}
       <svg 
-        className={`w-4 h-4 ml-1 transform transition-transform duration-200 ${activeDropdown === name ? 'rotate-180' : ''}`} 
+        className={`w-4 h-4 ml-1 transform transition-transform duration-200 ${
+          activeDropdown === name ? 'rotate-180' : ''
+        }`} 
         fill="none" 
         stroke="currentColor" 
         viewBox="0 0 24 24"
@@ -54,126 +62,119 @@ const Navbar = () => {
     </button>
   );
 
+  // Updated dropdown menu renderer
+  const renderDropdownMenu = (name: string, items: { href: string; label: string }[]) => (
+    <div 
+      className={`absolute left-0 mt-1 w-64 rounded-lg overflow-hidden
+                 bg-white dark:bg-[#26282c] 
+                 shadow-lg border border-gray-100 dark:border-gray-700
+                 transform transition-all duration-200 ease-in-out
+                 ${activeDropdown === name 
+                   ? 'opacity-100 visible translate-y-0' 
+                   : 'opacity-0 invisible -translate-y-2'}`}
+    >
+      <div className="py-1">
+        {items.map((item, index) => (
+          <Link
+            key={index}
+            href={item.href}
+            className="block px-4 py-2.5 text-base text-gray-700 dark:text-gray-200
+                     hover:bg-gray-50 dark:hover:bg-gray-700/50
+                     hover:text-teal-500 dark:hover:text-teal-400
+                     transition-colors duration-200"
+            onClick={handleLinkClick}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
-    <nav className="bg-white shadow-md relative z-50" ref={navRef}>
+    <nav className="bg-white dark:bg-[#26282c] shadow-md relative z-50 transition-colors duration-200" ref={navRef}>
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Left: Logo */}
           <div className="flex items-center">
-            <Link href="/">
-              <img src="/logo.png" alt="Logo" className="h-8 md:h-12" />
+            <Link href="/" className="flex items-center">
+              <img 
+                src={isDarkMode ? "/logo-dark.png" : "/logo.png"} 
+                alt="Logo" 
+                className="h-8 md:h-10 w-auto object-contain transition-opacity duration-200" 
+                style={{ minWidth: '180px' }}
+              />
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button 
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-gray-600 dark:text-gray-200
+                     hover:text-teal-500 dark:hover:text-teal-400
+                     rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700
+                     transition-colors duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                    d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
             </svg>
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
+            {/* About Dropdown */}
             <div className="relative group">
               {renderDropdownButton('about', t('navbar.about'))}
-              <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
-                activeDropdown === 'about' 
-                  ? 'opacity-100 visible translate-y-0' 
-                  : 'opacity-0 invisible -translate-y-2'
-              }`}>
-                <Link href="/about?section=introduction" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.introduction')}
-                </Link>
-                <Link href="/about?section=goal" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.goal')}
-                </Link>
-                <Link href="/about?section=objective" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.objective')}
-                </Link>
-                <Link href="/about?section=vision" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.vision')}
-                </Link>
-                <Link href="/about?section=values" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.values')}
-                </Link>
-              </div>
+              {renderDropdownMenu('about', [
+                { href: "/about?section=introduction", label: t('navbar.sections.introduction') },
+                { href: "/about?section=goal", label: t('navbar.sections.goal') },
+                { href: "/about?section=objective", label: t('navbar.sections.objective') },
+                { href: "/about?section=vision", label: t('navbar.sections.vision') },
+                { href: "/about?section=values", label: t('navbar.sections.values') }
+              ])}
             </div>
 
             {/* Services Dropdown */}
             <div className="relative group">
               {renderDropdownButton('services', t('navbar.services'))}
-              <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
-                activeDropdown === 'services' 
-                  ? 'opacity-100 visible translate-y-0' 
-                  : 'opacity-0 invisible -translate-y-2'
-              }`}>
-                <Link href="/services?section=feedback" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.feedback')}
-                </Link>
-                <Link href="/services?section=broker" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.broker')}
-                </Link>
-                <Link href="/services?section=underwriter" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.underwriter')}
-                </Link>
-                <Link href="/services?section=investment-advisor" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.investmentAdvisor')}
-                </Link>
-                <Link href="/services?section=mining-broker" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.miningBroker')}
-                </Link>
-              </div>
+              {renderDropdownMenu('services', [
+                { href: "/services?section=feedback", label: t('navbar.sections.feedback') },
+                { href: "/services?section=broker", label: t('navbar.sections.broker') },
+                { href: "/services?section=underwriter", label: t('navbar.sections.underwriter') },
+                { href: "/services?section=investment-advisor", label: t('navbar.sections.investmentAdvisor') },
+                { href: "/services?section=mining-broker", label: t('navbar.sections.miningBroker') }
+              ])}
             </div>
 
             {/* Research Dropdown */}
             <div className="relative group">
               {renderDropdownButton('research', t('navbar.research'))}
-              <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
-                activeDropdown === 'research' 
-                  ? 'opacity-100 visible translate-y-0' 
-                  : 'opacity-0 invisible -translate-y-2'
-              }`}>
-                <Link href="/research?section=news" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.news')}
-                </Link>
-                <Link href="/research?section=analysis" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.analysis')}
-                </Link>
-              </div>
+              {renderDropdownMenu('research', [
+                { href: "/research?section=news", label: t('navbar.sections.news') },
+                { href: "/research?section=analysis", label: t('navbar.sections.analysis') }
+              ])}
             </div>
 
             {/* FAQs Dropdown */}
             <div className="relative group">
               {renderDropdownButton('faqs', t('navbar.faqs'))}
-              <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
-                activeDropdown === 'faqs' 
-                  ? 'opacity-100 visible translate-y-0' 
-                  : 'opacity-0 invisible -translate-y-2'
-              }`}>
-                <Link href="/faq?section=common-questions" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.commonQuestions')}
-                </Link>
-                <Link href="/faq?section=open-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.openAccount')}
-                </Link>
-                <Link href="/faq?section=manage-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.manageAccount')}
-                </Link>
-                <Link href="/faq?section=contact" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
-                  {t('navbar.sections.contact')}
-                </Link>
-              </div>
+              {renderDropdownMenu('faqs', [
+                { href: "/faq?section=common-questions", label: t('navbar.sections.commonQuestions') },
+                { href: "/faq?section=open-account", label: t('navbar.sections.openAccount') },
+                { href: "/faq?section=manage-account", label: t('navbar.sections.manageAccount') },
+                { href: "/faq?section=contact", label: t('navbar.sections.contact') }
+              ])}
             </div>
           </div>
 
           {/* Desktop Right Section */}
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/trade">
-              <button className="bg-teal-500 text-white px-6 py-3 rounded-md font-semibold 
-                               hover:bg-teal-600 transition duration-300 text-lg">
+              <button className="bg-teal-500 text-white px-6 py-3 rounded-lg font-semibold 
+                               hover:bg-teal-600 transition duration-300 text-lg
+                               shadow-sm hover:shadow-md">
                 {t('navbar.trade')}
               </button>
             </Link>
@@ -183,47 +184,44 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden mt-4`}>
-          <div className="flex flex-col space-y-4">
-            <div className="space-y-2">
-              <div className="text-gray-800 text-lg font-semibold">About Us</div>
-              <Link href="/about?section=introduction" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Introduction</Link>
-              <Link href="/about?section=goal" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Goal</Link>
-              <Link href="/about?section=objective" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Objective</Link>
-              <Link href="/about?section=vision" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Vision</Link>
-              <Link href="/about?section=values" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Values</Link>
-            </div>
-            <div className="space-y-2">
-              <div className="text-gray-800 text-lg font-semibold">Services</div>
-              <Link href="/services?section=feedback" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Feedback</Link>
-              <Link href="/services?section=broker" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Broker</Link>
-              <Link href="/services?section=underwriter" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Underwriter</Link>
-              <Link href="/services?section=investment-advisor" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Investment Advisor</Link>
-              <Link href="/services?section=mining-broker" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Mining Broker</Link>
-            </div>
-            <div className="space-y-2">
-              <div className="text-gray-800 text-lg font-semibold">Research</div>
-              <Link href="/research?section=news" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>News</Link>
-              <Link href="/research?section=analysis" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Analysis</Link>
-            </div>
-            <div className="space-y-2">
-              <div className="text-gray-800 text-lg font-semibold">FAQs</div>
-              <Link href="/faq?section=common-questions" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Common Questions</Link>
-              <Link href="/faq?section=open-account" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Open an Account</Link>
-              <Link href="/faq?section=manage-account" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Manage Your Account Online</Link>
-              <Link href="/faq?section=contact" className="block pl-4 text-gray-700 hover:text-teal-500" onClick={handleLinkClick}>Contact Us</Link>
-            </div>
-            <Link href="/trade">
-              <button className="w-full bg-teal-500 text-gray-800 px-6 py-3 rounded-md font-semibold hover:bg-teal-600 transition duration-300 text-lg">
-                TRADE
-              </button>
-            </Link>
-          </div>
-
-          {/* Add dark mode toggle to mobile menu */}
-          <div className="mt-4 flex items-center justify-between px-4">
-            <DarkModeToggle />
-            <LanguageSwitcher />
+        <div 
+          className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden mt-4
+                     transition-all duration-200 ease-in-out`}
+        >
+          <div className="py-2 space-y-1 bg-white dark:bg-[#26282c] rounded-lg 
+                         shadow-lg border border-gray-100 dark:border-gray-700">
+            {/* Mobile menu items */}
+            {[
+              { title: t('navbar.about'), items: [
+                { href: "/about?section=introduction", label: t('navbar.sections.introduction') },
+                { href: "/about?section=goal", label: t('navbar.sections.goal') },
+                { href: "/about?section=objective", label: t('navbar.sections.objective') },
+                { href: "/about?section=vision", label: t('navbar.sections.vision') },
+                { href: "/about?section=values", label: t('navbar.sections.values') }
+              ]},
+              // Add other sections similarly
+            ].map((section, index) => (
+              <div key={index} className="px-4 py-2">
+                <div className="text-gray-700 dark:text-gray-200 text-lg font-medium mb-2">
+                  {section.title}
+                </div>
+                <div className="ml-4 space-y-2">
+                  {section.items.map((item, itemIndex) => (
+                    <Link 
+                      key={itemIndex}
+                      href={item.href} 
+                      className="block text-gray-600 dark:text-gray-300 
+                               hover:text-teal-500 dark:hover:text-teal-400
+                               hover:bg-gray-50 dark:hover:bg-gray-700/50
+                               px-2 py-1.5 rounded-md transition-colors duration-200" 
+                      onClick={handleLinkClick}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

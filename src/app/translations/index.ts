@@ -297,7 +297,7 @@ export const translations = {
       }
     },
     footer: {
-      tagline: "Таны найдвартай түнш санхүүгийн зах зээл дээр",
+      tagline: "Таны санхүүгийн найдвартай түнш ",
       quickLinks: "Шууд холбоосууд",
       followUs: "Биднийг дагах",
       contactUs: {

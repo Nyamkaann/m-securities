@@ -39,23 +39,23 @@ export default function Services() {
 
       <ServiceSection title={t('services.broker.title')} id="broker">
         <div className="space-y-6">
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-300">
             {t('services.broker.description')}
           </p>
 
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-medium text-gray-800 mb-4">
+          <div className="bg-white dark:bg-[#26282c] p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+            <h3 className="text-xl font-medium text-gray-800 dark:text-gray-100 mb-4">
               {t('services.broker.requiredDocs.title')}
             </h3>
             
             <div className="grid gap-6">
               {/* Citizen Requirements */}
               <div>
-                <h4 className="font-medium text-gray-800 mb-2">
+                <h4 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
                   {t('services.broker.requiredDocs.citizen.title')}
                 </h4>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  {t('services.broker.requiredDocs.citizen.items').map((item: string, index: number) => (
+                <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                  {(t('services.broker.requiredDocs.citizen.items') as unknown as string[]).map((item: string, index: number) => (
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
@@ -63,11 +63,11 @@ export default function Services() {
 
               {/* Legal Entity Requirements */}
               <div>
-                <h4 className="font-medium text-gray-800 mb-2">
+                <h4 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
                   {t('services.broker.requiredDocs.legalEntity.title')}
                 </h4>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  {t('services.broker.requiredDocs.legalEntity.items').map((item: string, index: number) => (
+                <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                  {(t('services.broker.requiredDocs.legalEntity.items') as unknown as string[]).map((item: string, index: number) => (
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
@@ -75,11 +75,11 @@ export default function Services() {
 
               {/* Foreign Citizen Requirements */}
               <div>
-                <h4 className="font-medium text-gray-800 mb-2">
+                <h4 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
                   {t('services.broker.requiredDocs.foreignCitizen.title')}
                 </h4>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                  {(t('services.broker.requiredDocs.foreignCitizen.items') as string[]).map((item: string, index: number) => (
+                <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                  {(t('services.broker.requiredDocs.foreignCitizen.items') as unknown as string[]).map((item: string, index: number) => (
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
@@ -91,25 +91,25 @@ export default function Services() {
 
       <ServiceSection title={t('services.underwriter.title')} id="underwriter">
         <div className="space-y-6">
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-300">
             {t('services.underwriter.description')}
           </p>
 
           <div className="grid gap-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-medium text-gray-800 mb-2">
+            <div className="bg-white dark:bg-[#26282c] p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+              <h3 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
                 {t('services.underwriter.equityFinancing.title')}
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 dark:text-gray-300">
                 {t('services.underwriter.equityFinancing.description')}
               </p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-medium text-gray-800 mb-2">
+            <div className="bg-white dark:bg-[#26282c] p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+              <h3 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
                 {t('services.underwriter.debtFinancing.title')}
               </h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 dark:text-gray-300">
                 {t('services.underwriter.debtFinancing.description')}
               </p>
             </div>
@@ -119,13 +119,13 @@ export default function Services() {
 
       <ServiceSection title={t('services.investmentAdvisor.title')} id="investment-advisor">
         <div className="space-y-6">
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-300">
             {t('services.investmentAdvisor.description')}
           </p>
 
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <ul className="list-disc pl-5 text-gray-700 space-y-2">
-              {t('services.investmentAdvisor.services').map((service: string, index: number) => (
+          <div className="bg-white dark:bg-[#26282c] p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+            <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-2">
+              {(t('services.investmentAdvisor.services') as unknown as string[]).map((service: string, index: number) => (
                 <li key={index}>{service}</li>
               ))}
             </ul>
@@ -135,12 +135,12 @@ export default function Services() {
 
       <ServiceSection title={t('services.miningBroker.title')} id="mining-broker">
         <div className="space-y-6">
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="font-medium text-gray-800 mb-4">
+          <div className="bg-white dark:bg-[#26282c] p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+            <h3 className="font-medium text-gray-800 dark:text-gray-200 mb-4">
               {t('services.miningBroker.requiredDocs.title')}
             </h3>
-            <ul className="list-disc pl-5 text-gray-700 space-y-2">
-              {t('services.miningBroker.requiredDocs.items').map((item: string, index: number) => (
+            <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-2">
+              {(t('services.miningBroker.requiredDocs.items') as unknown as string[]).map((item: string, index: number) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>

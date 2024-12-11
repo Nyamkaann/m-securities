@@ -1,26 +1,22 @@
 'use client';
-import { useState } from 'react';
+import { useDarkMode } from '../context/DarkModeContext';
 
 const DarkModeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDark(!isDark);
-    // Dark mode logic will be implemented later
-  };
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <button
       onClick={toggleDarkMode}
       className="flex items-center justify-center w-10 h-10 rounded-lg 
-                bg-white border border-gray-200 hover:border-teal-500 
+                bg-white dark:bg-[#26282c] border border-gray-200 dark:border-gray-700 
+                hover:border-teal-500 dark:hover:border-teal-500
                 shadow-sm transition-all duration-300 group"
       aria-label="Toggle dark mode"
     >
-      {isDark ? (
+      {isDarkMode ? (
         // Sun icon for light mode
         <svg
-          className="w-5 h-5 text-gray-600 group-hover:text-teal-500 transition-colors duration-300"
+          className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-teal-500 transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -35,7 +31,7 @@ const DarkModeToggle = () => {
       ) : (
         // Moon icon for dark mode
         <svg
-          className="w-5 h-5 text-gray-600 group-hover:text-teal-500 transition-colors duration-300"
+          className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-teal-500 transition-colors duration-300"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
