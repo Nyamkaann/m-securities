@@ -2,60 +2,151 @@
 'use client';
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { useLanguage } from '../context/LanguageContext';
+
+interface ServiceSectionProps {
+  title: string;
+  children: React.ReactNode;
+  id: string;
+}
+
+const ServiceSection = ({ title, children, id }: ServiceSectionProps) => (
+  <section id={id} className="mb-16 scroll-mt-20">
+    <h2 className="text-2xl font-semibold text-teal-500 mb-6">{title}</h2>
+    {children}
+  </section>
+);
 
 export default function Services() {
+  const { t } = useLanguage();
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const section = searchParams.get('section');
     if (section) {
-      setTimeout(() => {
-        const element = document.getElementById(section);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }, [searchParams]);
 
   return (
     <div className="py-20 px-4 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-teal-500 text-center mb-16">Our Services</h1>
-      
-      <section id="feedback" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Feedback</h2>
-        <p className="text-gray-700">
-          Our feedback service provides valuable insights and recommendations to help improve your trading experience. We collect and analyze user feedback to continuously enhance our platform and services.
-        </p>
-      </section>
+      <h1 className="text-4xl font-bold text-teal-500 text-center mb-16">
+        {t('services.title')}
+      </h1>
 
-      <section id="broker" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Broker</h2>
-        <p className="text-gray-700">
-          Our brokerage services offer comprehensive trading solutions with competitive rates, advanced trading platforms, and expert guidance to help you achieve your investment goals.
-        </p>
-      </section>
+      <ServiceSection title={t('services.broker.title')} id="broker">
+        <div className="space-y-6">
+          <p className="text-gray-700">
+            {t('services.broker.description')}
+          </p>
 
-      <section id="underwriter" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Underwriter</h2>
-        <p className="text-gray-700">
-          As underwriters, we facilitate capital raising and public offerings, ensuring smooth execution of securities transactions while maintaining compliance with regulatory requirements.
-        </p>
-      </section>
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="text-xl font-medium text-gray-800 mb-4">
+              {t('services.broker.requiredDocs.title')}
+            </h3>
+            
+            <div className="grid gap-6">
+              {/* Citizen Requirements */}
+              <div>
+                <h4 className="font-medium text-gray-800 mb-2">
+                  {t('services.broker.requiredDocs.citizen.title')}
+                </h4>
+                <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                  {t('services.broker.requiredDocs.citizen.items').map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
 
-      <section id="investment-advisor" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Investment Advisor</h2>
-        <p className="text-gray-700">
-          Our investment advisory services provide personalized financial guidance, portfolio management, and strategic investment planning to help you make informed investment decisions.
-        </p>
-      </section>
+              {/* Legal Entity Requirements */}
+              <div>
+                <h4 className="font-medium text-gray-800 mb-2">
+                  {t('services.broker.requiredDocs.legalEntity.title')}
+                </h4>
+                <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                  {t('services.broker.requiredDocs.legalEntity.items').map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
 
-      <section id="mining-broker" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Mining Broker</h2>
-        <p className="text-gray-700">
-          Specialized in mining sector investments, our mining broker service offers expert knowledge and access to mining-related securities, helping you navigate this unique market segment.
-        </p>
-      </section>
+              {/* Foreign Citizen Requirements */}
+              <div>
+                <h4 className="font-medium text-gray-800 mb-2">
+                  {t('services.broker.requiredDocs.foreignCitizen.title')}
+                </h4>
+                <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                  {(t('services.broker.requiredDocs.foreignCitizen.items') as string[]).map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ServiceSection>
+
+      <ServiceSection title={t('services.underwriter.title')} id="underwriter">
+        <div className="space-y-6">
+          <p className="text-gray-700">
+            {t('services.underwriter.description')}
+          </p>
+
+          <div className="grid gap-6">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="font-medium text-gray-800 mb-2">
+                {t('services.underwriter.equityFinancing.title')}
+              </h3>
+              <p className="text-gray-700">
+                {t('services.underwriter.equityFinancing.description')}
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="font-medium text-gray-800 mb-2">
+                {t('services.underwriter.debtFinancing.title')}
+              </h3>
+              <p className="text-gray-700">
+                {t('services.underwriter.debtFinancing.description')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </ServiceSection>
+
+      <ServiceSection title={t('services.investmentAdvisor.title')} id="investment-advisor">
+        <div className="space-y-6">
+          <p className="text-gray-700">
+            {t('services.investmentAdvisor.description')}
+          </p>
+
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <ul className="list-disc pl-5 text-gray-700 space-y-2">
+              {t('services.investmentAdvisor.services').map((service: string, index: number) => (
+                <li key={index}>{service}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </ServiceSection>
+
+      <ServiceSection title={t('services.miningBroker.title')} id="mining-broker">
+        <div className="space-y-6">
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="font-medium text-gray-800 mb-4">
+              {t('services.miningBroker.requiredDocs.title')}
+            </h3>
+            <ul className="list-disc pl-5 text-gray-700 space-y-2">
+              {t('services.miningBroker.requiredDocs.items').map((item: string, index: number) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </ServiceSection>
     </div>
   );
 }

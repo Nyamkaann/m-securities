@@ -3,8 +3,10 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import LanguageSwitcher from './language-switcher';
 import DarkModeToggle from './dark-mode-toggle';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = () => {
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
@@ -76,61 +78,93 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             <div className="relative group">
-              {renderDropdownButton('about', 'About Us')}
+              {renderDropdownButton('about', t('navbar.about'))}
               <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
                 activeDropdown === 'about' 
                   ? 'opacity-100 visible translate-y-0' 
                   : 'opacity-0 invisible -translate-y-2'
               }`}>
-                <Link href="/about?section=introduction" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Introduction</Link>
-                <Link href="/about?section=goal" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Goal</Link>
-                <Link href="/about?section=objective" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Objective</Link>
-                <Link href="/about?section=vision" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Vision</Link>
-                <Link href="/about?section=values" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Values</Link>
+                <Link href="/about?section=introduction" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.introduction')}
+                </Link>
+                <Link href="/about?section=goal" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.goal')}
+                </Link>
+                <Link href="/about?section=objective" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.objective')}
+                </Link>
+                <Link href="/about?section=vision" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.vision')}
+                </Link>
+                <Link href="/about?section=values" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.values')}
+                </Link>
               </div>
             </div>
 
             {/* Services Dropdown */}
             <div className="relative group">
-              {renderDropdownButton('services', 'Services')}
+              {renderDropdownButton('services', t('navbar.services'))}
               <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
                 activeDropdown === 'services' 
                   ? 'opacity-100 visible translate-y-0' 
                   : 'opacity-0 invisible -translate-y-2'
               }`}>
-                <Link href="/services?section=feedback" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Feedback</Link>
-                <Link href="/services?section=broker" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Broker</Link>
-                <Link href="/services?section=underwriter" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Underwriter</Link>
-                <Link href="/services?section=investment-advisor" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Investment Advisor</Link>
-                <Link href="/services?section=mining-broker" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Mining Broker</Link>
+                <Link href="/services?section=feedback" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.feedback')}
+                </Link>
+                <Link href="/services?section=broker" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.broker')}
+                </Link>
+                <Link href="/services?section=underwriter" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.underwriter')}
+                </Link>
+                <Link href="/services?section=investment-advisor" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.investmentAdvisor')}
+                </Link>
+                <Link href="/services?section=mining-broker" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.miningBroker')}
+                </Link>
               </div>
             </div>
 
             {/* Research Dropdown */}
             <div className="relative group">
-              {renderDropdownButton('research', 'Research')}
+              {renderDropdownButton('research', t('navbar.research'))}
               <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
                 activeDropdown === 'research' 
                   ? 'opacity-100 visible translate-y-0' 
                   : 'opacity-0 invisible -translate-y-2'
               }`}>
-                <Link href="/research?section=news" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>News</Link>
-                <Link href="/research?section=analysis" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Analysis</Link>
+                <Link href="/research?section=news" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.news')}
+                </Link>
+                <Link href="/research?section=analysis" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.analysis')}
+                </Link>
               </div>
             </div>
 
             {/* FAQs Dropdown */}
             <div className="relative group">
-              {renderDropdownButton('faqs', 'FAQs')}
+              {renderDropdownButton('faqs', t('navbar.faqs'))}
               <div className={`absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 transform transition-all duration-200 ease-in-out ${
                 activeDropdown === 'faqs' 
                   ? 'opacity-100 visible translate-y-0' 
                   : 'opacity-0 invisible -translate-y-2'
               }`}>
-                <Link href="/faq?section=common-questions" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Common Questions</Link>
-                <Link href="/faq?section=open-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Open an Account</Link>
-                <Link href="/faq?section=manage-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Manage Your Account Online</Link>
-                <Link href="/faq?section=contact" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>Contact Us</Link>
+                <Link href="/faq?section=common-questions" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.commonQuestions')}
+                </Link>
+                <Link href="/faq?section=open-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.openAccount')}
+                </Link>
+                <Link href="/faq?section=manage-account" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.manageAccount')}
+                </Link>
+                <Link href="/faq?section=contact" className="block px-4 py-2 text-gray-800 hover:bg-teal-50 hover:text-teal-500" onClick={handleLinkClick}>
+                  {t('navbar.sections.contact')}
+                </Link>
               </div>
             </div>
           </div>
@@ -140,7 +174,7 @@ const Navbar = () => {
             <Link href="/trade">
               <button className="bg-teal-500 text-white px-6 py-3 rounded-md font-semibold 
                                hover:bg-teal-600 transition duration-300 text-lg">
-                TRADE
+                {t('navbar.trade')}
               </button>
             </Link>
             <LanguageSwitcher />

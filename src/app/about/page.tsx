@@ -2,8 +2,10 @@
 'use client';
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { useLanguage } from '../context/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -18,45 +20,64 @@ const About = () => {
 
   return (
     <div className="py-20 px-4 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-teal-500 text-center mb-16">About Us</h1>
+      <h1 className="text-4xl font-bold text-teal-500 text-center mb-16">
+        {t('about.title')}
+      </h1>
       
-      <section id="introduction" className="mb-16">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Introduction</h2>
+      <section id="objective" className="mb-16">
+        <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          {t('about.objective.title')}
+        </h2>
         <p className="text-gray-700">
-          Welcome to M-Securities, where we combine financial expertise with innovative solutions to help you achieve your investment goals. Our commitment to excellence and client satisfaction drives everything we do.
+          {t('about.objective.description')}
         </p>
       </section>
 
       <section id="goal" className="mb-16">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Goal</h2>
-        <p className="text-gray-700">
-          Our primary goal is to empower investors with the tools, knowledge, and support they need to make informed financial decisions and build lasting wealth through strategic investment opportunities.
-        </p>
-      </section>
-
-      <section id="objective" className="mb-16">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Objective</h2>
-        <p className="text-gray-700">
-          We aim to deliver exceptional financial services while maintaining the highest standards of integrity, transparency, and professional excellence. Our objective is to become the most trusted partner in our clients' financial journey.
-        </p>
+        <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          {t('about.goal.title')}
+        </h2>
+        <ul className="list-disc list-inside text-gray-700 space-y-2">
+          {t('about.goal.items').map((item: string, index: number) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
       </section>
 
       <section id="vision" className="mb-16">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Vision</h2>
+        <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          {t('about.vision.title')}
+        </h2>
         <p className="text-gray-700">
-          To be the leading financial institution that revolutionizes the investment landscape by providing innovative solutions, superior customer service, and sustainable growth opportunities for our clients.
+          {t('about.vision.description')}
         </p>
       </section>
 
-      <section id="values" className="mb-16">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Values</h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-2">
-          <li>Integrity in all our dealings</li>
-          <li>Excellence in service delivery</li>
-          <li>Innovation in financial solutions</li>
-          <li>Client-centric approach</li>
-          <li>Transparency and accountability</li>
-        </ul>
+      <section id="value" className="mb-16">
+        <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          {t('about.value.title')}
+        </h2>
+        <p className="text-gray-700">
+          {t('about.value.description')}
+        </p>
+      </section>
+
+      <section id="introduction" className="mb-16">
+        <h2 className="text-2xl font-semibold text-teal-500 mb-4">
+          {t('about.introduction.title')}
+        </h2>
+        <div className="space-y-4 text-gray-700">
+          <p>
+            <span className="font-semibold">
+              {t('about.introduction.organizationalHistory.title')}
+            </span>
+            <br/>
+            {t('about.introduction.organizationalHistory.description1')}
+          </p>
+          <p>
+            {t('about.introduction.organizationalHistory.description2')}
+          </p>
+        </div>
       </section>
     </div>
   );

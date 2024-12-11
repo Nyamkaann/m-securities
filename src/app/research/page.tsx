@@ -2,39 +2,54 @@
 'use client';
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { useLanguage } from '../context/LanguageContext';
+
+interface ResearchSectionProps {
+  title: string;
+  description: string;
+  id: string;
+}
+
+const ResearchSection = ({ title, description, id }: ResearchSectionProps) => (
+  <section id={id} className="mb-16 scroll-mt-20">
+    <div className="bg-gray-50 p-6 rounded-lg">
+      <h2 className="text-2xl font-semibold text-teal-500 mb-4">{title}</h2>
+      <p className="text-gray-700">{description}</p>
+    </div>
+  </section>
+);
 
 export default function Research() {
+  const { t } = useLanguage();
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const section = searchParams.get('section');
     if (section) {
-      setTimeout(() => {
-        const element = document.getElementById(section);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }, [searchParams]);
 
   return (
     <div className="py-20 px-4 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-teal-500 text-center mb-16">Research</h1>
+      <h1 className="text-4xl font-bold text-teal-500 text-center mb-16">
+        {t('research.title')}
+      </h1>
       
-      <section id="news" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">News</h2>
-        <p className="text-gray-700">
-          Stay updated with the latest market news and developments. Our news section provides real-time updates on market trends, company announcements, and economic indicators that impact your investment decisions.
-        </p>
-      </section>
+      <ResearchSection
+        id="news"
+        title={t('research.news.title')}
+        description={t('research.news.description')}
+      />
 
-      <section id="analysis" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Analysis</h2>
-        <p className="text-gray-700">
-          Access comprehensive market analysis and research reports from our expert analysts. We provide detailed insights into market trends, sector analysis, and investment opportunities to help you make informed decisions.
-        </p>
-      </section>
+      <ResearchSection
+        id="analysis"
+        title={t('research.analysis.title')}
+        description={t('research.analysis.description')}
+      />
     </div>
   );
 }

@@ -2,68 +2,109 @@
 'use client';
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { useLanguage } from '../context/LanguageContext';
+
+interface FAQSectionProps {
+  title: string;
+  children: React.ReactNode;
+  id: string;
+}
+
+const FAQSection = ({ title, children, id }: FAQSectionProps) => (
+  <section id={id} className="mb-16 scroll-mt-20">
+    <h2 className="text-2xl font-semibold text-teal-500 mb-6">{title}</h2>
+    {children}
+  </section>
+);
 
 export default function FAQs() {
+  const { t } = useLanguage();
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const section = searchParams.get('section');
     if (section) {
-      setTimeout(() => {
-        const element = document.getElementById(section);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }, [searchParams]);
 
   return (
     <div className="py-20 px-4 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-teal-500 text-center mb-16">FAQs</h1>
-      
-      <section id="faqs" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Frequently Asked Questions</h2>
-        <div className="space-y-4">
-          <div className="p-4 bg-white rounded-lg shadow-sm">
-            <h3 className="font-semibold text-gray-800">How do I open an account?</h3>
-            <p className="text-gray-700 mt-2">You can open an account by visiting our website and following the simple registration process...</p>
+      <h1 className="text-4xl font-bold text-teal-500 text-center mb-16">
+        {t('faq.title')}
+      </h1>
+
+      <FAQSection title={t('faq.onlineTrading.title')} id="common-questions">
+        <div className="space-y-6">
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="text-xl font-medium text-gray-800 mb-4">
+              {t('faq.onlineTrading.howTo.title')}
+            </h3>
+            <div className="space-y-4 text-gray-700">
+              <p>
+                {t('faq.onlineTrading.howTo.description1')}
+              </p>
+              <p>
+                {t('faq.onlineTrading.howTo.description2')}
+              </p>
+              <p className="text-red-600">
+                {t('faq.onlineTrading.howTo.note')}
+              </p>
+            </div>
           </div>
-          {/* Add more FAQ items */}
         </div>
-      </section>
+      </FAQSection>
 
-      <section id="common-questions" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Common Questions</h2>
-        <div className="space-y-4">
-          <div className="p-4 bg-white rounded-lg shadow-sm">
-            <h3 className="font-semibold text-gray-800">What are your trading hours?</h3>
-            <p className="text-gray-700 mt-2">Our trading hours follow the standard market hours...</p>
+      <FAQSection title={t('faq.accountManagement.title')} id="manage-account">
+        <div className="space-y-6">
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="text-xl font-medium text-gray-800 mb-4">
+              {t('faq.accountManagement.forgotPassword.title')}
+            </h3>
+            <p className="text-gray-700">
+              {t('faq.accountManagement.forgotPassword.description')}
+            </p>
           </div>
-          {/* Add more common questions */}
+
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="text-xl font-medium text-gray-800 mb-4">
+              {t('faq.accountManagement.contactUpdate.title')}
+            </h3>
+            <p className="text-gray-700">
+              {t('faq.accountManagement.contactUpdate.description')}
+            </p>
+          </div>
         </div>
-      </section>
+      </FAQSection>
 
-      <section id="open-account" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Open an Account</h2>
-        <p className="text-gray-700">
-          Learn about our account opening process and requirements...
-        </p>
-      </section>
-
-      <section id="manage-account" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Manage Your Account Online</h2>
-        <p className="text-gray-700">
-          Discover how to manage your account through our online platform...
-        </p>
-      </section>
-
-      <section id="contact" className="mb-16 scroll-mt-20">
-        <h2 className="text-2xl font-semibold text-teal-500 mb-4">Contact Us</h2>
-        <p className="text-gray-700">
-          Get in touch with our support team for any questions or assistance...
-        </p>
-      </section>
+      <FAQSection title={t('faq.contact.title')} id="contact">
+        <div className="bg-gray-50 p-6 rounded-lg">
+          <h3 className="text-xl font-medium text-gray-800 mb-4">
+            {t('faq.contact.subtitle')}
+          </h3>
+          <div className="space-y-2 text-gray-700">
+            <p>
+              <span className="font-medium">
+                {t('faq.contact.phone')}
+              </span>{' '}
+              <Link href="tel:8812-0890" className="text-teal-600 hover:underline">8812-0890</Link>,{' '}
+              <Link href="tel:8966-6986" className="text-teal-600 hover:underline">8966-6986</Link>
+            </p>
+            <p>
+              <span className="font-medium">
+                {t('faq.contact.email')}
+              </span>{' '}
+              <Link href="mailto:info@msecurities.mn" className="text-teal-600 hover:underline">
+                info@msecurities.mn
+              </Link>
+            </p>
+          </div>
+        </div>
+      </FAQSection>
     </div>
   );
 }
