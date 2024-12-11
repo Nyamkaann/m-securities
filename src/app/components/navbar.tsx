@@ -55,7 +55,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-white shadow-md" ref={navRef}>
+    <nav className="bg-white shadow-md relative z-50" ref={navRef}>
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Left: Logo */}

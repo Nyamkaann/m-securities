@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface CarouselProps {
   images: {
@@ -12,6 +13,7 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({ images, autoPlayInterval = 5000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -36,7 +38,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, autoPlayInterval = 5000 }) 
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* Images */}
-      <div className="relative h-full">
+      <div className="relative h-full z-10">
         {images.map((image, index) => (
           <div
             key={index}
@@ -57,10 +59,9 @@ const Carousel: React.FC<CarouselProps> = ({ images, autoPlayInterval = 5000 }) 
       {/* Content Overlay */}
       <div className="absolute inset-0 z-20 flex items-center justify-center">
         <div className="text-center text-white px-4 md:px-8 max-w-4xl">
-          
           <button className="bg-teal-500 text-white px-8 py-4 rounded-md text-lg font-semibold 
                            hover:bg-teal-600 transition duration-300 transform hover:scale-105">
-            Start Investing
+            {t('home.hero.startInvesting')}
           </button>
         </div>
       </div>
