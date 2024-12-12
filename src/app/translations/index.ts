@@ -451,7 +451,7 @@ export const translations = {
     },
     home: {
       hero: {
-        startInvesting: "Хөрөнгө оруулалт эхлэх"
+        startInvesting: "Хөрөнгө оруулах"
       },
       about: {
         title: "Яагаад биднийг сонгох вэ",

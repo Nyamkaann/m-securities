@@ -28,7 +28,7 @@ const About = () => {
         <h2 className="text-2xl font-semibold text-teal-500 mb-4">
           {t('about.objective.title')}
         </h2>
-        <p className="text-gray-700">
+        <p className="text-gray-700 dark:text-white">
           {t('about.objective.description')}
         </p>
       </section>
@@ -37,7 +37,7 @@ const About = () => {
         <h2 className="text-2xl font-semibold text-teal-500 mb-4">
           {t('about.goal.title')}
         </h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-2">
+        <ul className="list-disc list-inside text-gray-700 dark:text-white space-y-2">
           {(t('about.goal.items') as unknown as string[]).map((item: string, index: number) => (
             <li key={index}>{item}</li>
           ))}
@@ -48,7 +48,7 @@ const About = () => {
         <h2 className="text-2xl font-semibold text-teal-500 mb-4">
           {t('about.vision.title')}
         </h2>
-        <p className="text-gray-700">
+        <p className="text-gray-700 dark:text-white">
           {t('about.vision.description')}
         </p>
       </section>
@@ -57,7 +57,7 @@ const About = () => {
         <h2 className="text-2xl font-semibold text-teal-500 mb-4">
           {t('about.value.title')}
         </h2>
-        <p className="text-gray-700">
+        <p className="text-gray-700 dark:text-white">
           {t('about.value.description')}
         </p>
       </section>
@@ -66,7 +66,7 @@ const About = () => {
         <h2 className="text-2xl font-semibold text-teal-500 mb-4">
           {t('about.introduction.title')}
         </h2>
-        <div className="space-y-4 text-gray-700">
+        <div className="space-y-4 text-gray-700 dark:text-white">
           <p>
             <span className="font-semibold">
               {t('about.introduction.organizationalHistory.title')}
