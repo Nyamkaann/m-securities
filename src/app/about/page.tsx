@@ -38,7 +38,7 @@ const About = () => {
           {t('about.goal.title')}
         </h2>
         <ul className="list-disc list-inside text-gray-700 space-y-2">
-          {t('about.goal.items').map((item: string, index: number) => (
+          {(t('about.goal.items') as unknown as string[]).map((item: string, index: number) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
