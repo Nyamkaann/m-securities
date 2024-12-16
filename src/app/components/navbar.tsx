@@ -7,8 +7,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { useDarkMode } from '../context/DarkModeContext';
 
 const Navbar = () => {
-  const { isDarkMode } = useDarkMode();
   const { t } = useLanguage();
+  const { isDarkMode } = useDarkMode();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
@@ -81,7 +81,8 @@ const Navbar = () => {
             className="block px-4 py-2.5 text-base text-gray-700 dark:text-gray-200
                      hover:bg-gray-50 dark:hover:bg-gray-700/50
                      hover:text-teal-500 dark:hover:text-teal-400
-                     transition-colors duration-200"
+                     transition-all duration-300 ease-in-out
+                     hover:translate-x-2"
             onClick={handleLinkClick}
           >
             {item.label}
@@ -107,32 +108,16 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <button 
-            className="md:hidden p-2 text-gray-600 dark:text-gray-200
-                     hover:text-teal-500 dark:hover:text-teal-400
-                     rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700
-                     transition-colors duration-200"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-expanded={isMenuOpen}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                    d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-            </svg>
-          </button>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {/* About Dropdown */}
             <div className="relative group">
               {renderDropdownButton('about', t('navbar.about'))}
               {renderDropdownMenu('about', [
-                { href: "/about?section=introduction", label: t('navbar.sections.introduction') },
-                { href: "/about?section=goal", label: t('navbar.sections.goal') },
-                { href: "/about?section=objective", label: t('navbar.sections.objective') },
-                { href: "/about?section=vision", label: t('navbar.sections.vision') },
-                { href: "/about?section=values", label: t('navbar.sections.values') }
+                { href: "/about/introduction", label: t('navbar.sections.introduction') },
+                { href: "/about/goal", label: t('navbar.sections.goal') },
+                { href: "/about/vision", label: t('navbar.sections.vision') },
+                { href: "/about/values", label: t('navbar.sections.values') }
               ])}
             </div>
 
@@ -140,11 +125,10 @@ const Navbar = () => {
             <div className="relative group">
               {renderDropdownButton('services', t('navbar.services'))}
               {renderDropdownMenu('services', [
-                { href: "/services?section=feedback", label: t('navbar.sections.feedback') },
-                { href: "/services?section=broker", label: t('navbar.sections.broker') },
-                { href: "/services?section=underwriter", label: t('navbar.sections.underwriter') },
-                { href: "/services?section=investment-advisor", label: t('navbar.sections.investmentAdvisor') },
-                { href: "/services?section=mining-broker", label: t('navbar.sections.miningBroker') }
+                { href: "/services/broker", label: t('navbar.sections.broker') },
+                { href: "/services/underwriter", label: t('navbar.sections.underwriter') },
+                { href: "/services/investment-advisor", label: t('navbar.sections.investmentAdvisor') },
+                { href: "/services/mining-broker", label: t('navbar.sections.miningBroker') }
               ])}
             </div>
 
@@ -152,8 +136,8 @@ const Navbar = () => {
             <div className="relative group">
               {renderDropdownButton('research', t('navbar.research'))}
               {renderDropdownMenu('research', [
-                { href: "/research?section=news", label: t('navbar.sections.news') },
-                { href: "/research?section=analysis", label: t('navbar.sections.analysis') }
+                { href: "/research/news", label: t('navbar.sections.news') },
+                { href: "/research/analysis", label: t('navbar.sections.analysis') }
               ])}
             </div>
 
@@ -161,10 +145,9 @@ const Navbar = () => {
             <div className="relative group">
               {renderDropdownButton('faqs', t('navbar.faqs'))}
               {renderDropdownMenu('faqs', [
-                { href: "/faq?section=common-questions", label: t('navbar.sections.commonQuestions') },
-                { href: "/faq?section=open-account", label: t('navbar.sections.openAccount') },
-                { href: "/faq?section=manage-account", label: t('navbar.sections.manageAccount') },
-                { href: "/faq?section=contact", label: t('navbar.sections.contact') }
+                { href: "/faq/common-questions", label: t('navbar.sections.commonQuestions') },
+                { href: "/faq/manage-account", label: t('navbar.sections.manageAccount') },
+                { href: "/faq/contact", label: t('navbar.sections.contact') }
               ])}
             </div>
           </div>
@@ -181,49 +164,29 @@ const Navbar = () => {
             <LanguageSwitcher />
             <DarkModeToggle />
           </div>
+
+          {/* Mobile menu button */}
+          <button 
+            className="md:hidden p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+              />
+            </svg>
+          </button>
         </div>
 
         {/* Mobile Navigation */}
-        <div 
-          className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden mt-4
-                     transition-all duration-200 ease-in-out`}
-        >
-          <div className="py-2 space-y-1 bg-white dark:bg-[#26282c] rounded-lg 
-                         shadow-lg border border-gray-100 dark:border-gray-700">
-            {/* Mobile menu items */}
-            {[
-              { title: t('navbar.about'), items: [
-                { href: "/about?section=introduction", label: t('navbar.sections.introduction') },
-                { href: "/about?section=goal", label: t('navbar.sections.goal') },
-                { href: "/about?section=objective", label: t('navbar.sections.objective') },
-                { href: "/about?section=vision", label: t('navbar.sections.vision') },
-                { href: "/about?section=values", label: t('navbar.sections.values') }
-              ]},
-              // Add other sections similarly
-            ].map((section, index) => (
-              <div key={index} className="px-4 py-2">
-                <div className="text-gray-700 dark:text-gray-200 text-lg font-medium mb-2">
-                  {section.title}
-                </div>
-                <div className="ml-4 space-y-2">
-                  {section.items.map((item, itemIndex) => (
-                    <Link 
-                      key={itemIndex}
-                      href={item.href} 
-                      className="block text-gray-600 dark:text-gray-300 
-                               hover:text-teal-500 dark:hover:text-teal-400
-                               hover:bg-gray-50 dark:hover:bg-gray-700/50
-                               px-2 py-1.5 rounded-md transition-colors duration-200" 
-                      onClick={handleLinkClick}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4">
+            {/* Add your mobile menu items here */}
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );

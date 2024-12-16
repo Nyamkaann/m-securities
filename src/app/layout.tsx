@@ -3,8 +3,7 @@ import './styles/globals.css';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import { Nunito } from 'next/font/google';
-import { LanguageProvider } from './context/LanguageContext';
-import { DarkModeProvider } from './context/DarkModeContext';
+import { Providers } from './context/providers';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -18,8 +17,21 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={nunito.className}>
+    <html lang="en" suppressHydrationWarning className={nunito.className}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark')
+                } else {
+                  document.documentElement.classList.remove('dark')
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -28,15 +40,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
-        <DarkModeProvider>
-          <LanguageProvider>
+        <Providers>
+          <div className="min-h-screen bg-white dark:bg-[#26282c] transition-colors duration-200">
             <Navbar />
-            <main className="min-h-screen dark:bg-[#26282c] transition-colors duration-200">
+            <main>
               {children}
             </main>
             <Footer />
-          </LanguageProvider>
-        </DarkModeProvider>
+          </div>
+        </Providers>
       </body>
     </html>
   );

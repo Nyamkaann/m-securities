@@ -1,8 +1,18 @@
 'use client';
 import { useDarkMode } from '../context/DarkModeContext';
+import { useState, useEffect } from 'react';
 
 const DarkModeToggle = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // or a placeholder/skeleton
+  }
 
   return (
     <button

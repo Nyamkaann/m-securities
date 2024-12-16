@@ -3,9 +3,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+.dark {
+  --background: #26282c;
+  --foreground: #ffffff;
+}
+
 body {
-  display: flex;
-  flex-direction: column;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 @layer utilities {
@@ -19,5 +29,45 @@ body {
   
   .section-padding {
     @apply py-8 sm:py-12 lg:py-16;
+  }
+}
+
+/* Add these transition classes */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

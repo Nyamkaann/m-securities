@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 interface DarkModeContextType {
   isDarkMode: boolean;
@@ -8,34 +8,36 @@ interface DarkModeContextType {
 
 const DarkModeContext = createContext<DarkModeContextType | undefined>(undefined);
 
-export function DarkModeProvider({ children }: { children: ReactNode }) {
+export function DarkModeProvider({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
+  // Initial setup
   useEffect(() => {
-    // Check if user has dark mode preference saved
-    const savedDarkMode = localStorage.getItem('darkMode');
-    if (savedDarkMode) {
-      setIsDarkMode(JSON.parse(savedDarkMode));
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setIsDarkMode(prefersDark);
-    }
+    // Check localStorage and system preference
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    const initialTheme = savedTheme === 'dark' || (!savedTheme && darkModeQuery.matches);
+    setIsDarkMode(initialTheme);
+    
+    // Apply the theme
+    document.documentElement.classList.toggle('dark', initialTheme);
+    setMounted(true);
   }, []);
 
-  useEffect(() => {
-    // Update document class and save preference
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-  }, [isDarkMode]);
-
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prev) => {
+      const newValue = !prev;
+      localStorage.setItem('theme', newValue ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', newValue);
+      return newValue;
+    });
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
@@ -46,7 +48,7 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
 
 export function useDarkMode() {
   const context = useContext(DarkModeContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useDarkMode must be used within a DarkModeProvider');
   }
   return context;
