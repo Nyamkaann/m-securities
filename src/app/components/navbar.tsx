@@ -5,6 +5,7 @@ import LanguageSwitcher from './language-switcher';
 import DarkModeToggle from './dark-mode-toggle';
 import { useLanguage } from '../context/LanguageContext';
 import { useDarkMode } from '../context/DarkModeContext';
+import Image from 'next/image';
 
 const Navbar = () => {
   const { t } = useLanguage();
@@ -99,11 +100,12 @@ const Navbar = () => {
           {/* Left: Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <img 
+              <Image 
                 src={isDarkMode ? "/logo-dark.png" : "/logo.png"} 
                 alt="Logo" 
-                className="h-8 md:h-10 w-auto object-contain transition-opacity duration-200" 
-                style={{ minWidth: '180px' }}
+                width={180}
+                height={40}
+                className="h-8 md:h-10 w-auto object-contain transition-opacity duration-200"
               />
             </Link>
           </div>

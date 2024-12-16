@@ -4,10 +4,17 @@ import { translations } from '../translations';
 
 type Language = 'en' | 'mn';
 
+type TranslationKey = string;
+type TranslationValue = string | string[] | Record<string, string>;
+
+interface Translations {
+  [key: string]: TranslationValue | Translations;
+}
+
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: TranslationKey) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -29,7 +36,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('language', lang);
   };
 
-  const t = (key: string) => {
+  const t = (key: TranslationKey): string => {
     const keys = key.split('.');
     let value: any = translations[language];
     

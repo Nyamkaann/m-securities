@@ -13,15 +13,16 @@ const Footer = () => {
   useEffect(() => {
     const loadTradingViewWidget = () => {
       try {
-        if (!widgetRef.current) return;
+        const currentWidget = widgetRef.current;
+        if (!currentWidget) return;
 
         // Clear previous content
-        widgetRef.current.innerHTML = '';
+        currentWidget.innerHTML = '';
 
         // Create widget container
         const widgetContainer = document.createElement('div');
         widgetContainer.className = 'tradingview-widget-container__widget';
-        widgetRef.current.appendChild(widgetContainer);
+        currentWidget.appendChild(widgetContainer);
 
         // Create script element
         const script = document.createElement('script');
@@ -63,19 +64,19 @@ const Footer = () => {
         };
 
         script.innerHTML = JSON.stringify(config);
-        widgetRef.current.appendChild(script);
+        currentWidget.appendChild(script);
       } catch (error) {
         console.error('Error loading TradingView widget:', error);
       }
     };
 
-    // Load widget with a slight delay to ensure DOM is ready
     const timer = setTimeout(loadTradingViewWidget, 100);
 
     return () => {
       clearTimeout(timer);
-      if (widgetRef.current) {
-        widgetRef.current.innerHTML = '';
+      const currentWidget = widgetRef.current;
+      if (currentWidget) {
+        currentWidget.innerHTML = '';
       }
     };
   }, [isDarkMode]);
