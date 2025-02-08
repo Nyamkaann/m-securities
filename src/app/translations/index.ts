@@ -51,7 +51,8 @@ export const translations = {
         commonQuestions: "Common Questions",
         openAccount: "Open an Account",
         manageAccount: "Manage Your Account Online",
-        contact: "Contact Us"
+        contact: "Contact Us",
+        team: "Our Team"
       }
     },
     footer: {
@@ -66,7 +67,7 @@ export const translations = {
         },
         phone: {
           label: "Phone",
-          numbers: ["8812-0890", "8966-6986"]
+          numbers: ["8981-9938"]
         },
         location: {
           label: "Find us on Google Maps",
@@ -110,6 +111,38 @@ export const translations = {
           title: "Organizational History",
           description1: "M Securities LLC is a subsidiary of the leading Mongolian company MCS Holding LLC and was established to provide professional brokerage, dealer, underwriting and investment advisory services to Mongolian and foreign capital market participants.",
           description2: "M Securities LLC aims to provide securities market participants with timely market information and research, adapt models that meet international financial standards to the conditions of Mongolia, and offer investment opportunities with the highest returns by combining customer-centric services with new technological opportunities, while respecting professional ethics."
+        }
+      },
+      team: {
+        title: "Our Team",
+        members: {
+          member1: {
+            name: "Munkhjargal Kh",
+            position: "CEO"
+          },
+          member2: {
+            name: "Munkhdalai B",
+            position: "Broker"
+          },
+          member3: {
+            name: "Nomundar B",
+            position: "Broker"
+          },
+          member4: {
+            name: "Nyamdorj M",
+            position: "IT Specialist"
+          },
+
+          member5: {
+            name: "Ariunzaya B",
+            position: "Accountant"
+          },
+
+          member6: {
+            name: "Telmen B",
+            position: "Legal Advisor"
+          }
+
         }
       }
     },
@@ -239,6 +272,13 @@ export const translations = {
         description: "Start investing with us now and take the first step toward a secure financial future.",
         button: "Create Account"
       }
+    },
+    error: {
+      404: {
+        title: "Temporarily Unavailable",
+        description: "This page is currently not accessible.",
+        backToHome: "Back to Home"
+      }
     }
   },
   mn: {
@@ -248,8 +288,8 @@ export const translations = {
         title: "Онлайн арилжаа",
         howTo: {
           title: "Онлайн арилжаанд хэрхэн оролцох вэ?",
-          description1: "М Секюритиес ҮЦК-д онлайн данс нээлгэхин тулд www.msecurities.istock.mn хаягаар нэвтэрч \"Бүртгүүлэх\" товчийг дарж үнэт цаасны данс нээлгэн арилжаа хийх эрхтэй болно.",
-          description2: "Таны хүсэлтийг хүлээн авснаас хойш 24 цагийн дотор таны данс нээгдэх өгөөд www.msecurities.istock.mn вэбсайтад бүртгүүлсэн нэвтрэх нэр, нууц үгээр дамжуулан арилжаанд бүрэн эрхтэйгээр оролцох боломжтой.",
+          description1: "М Секьюритис ҮЦК-д онлайн данс нээлгэхин тулд www.msecurities.istock.mn хаягаар нэвтэрч \"Бүртгүүлэх\" товчийг дарж үнэт цаасны данс нээлгэн арилжаа хийх эрхтэй болно.",
+          description2: "Таны хүсэлтийг хүлээн авснаас хойш 24 цагийн дотор таны данс нээгдэх бөгөөд www.msecurities.istock.mn вэбсайтаар арилжаанд бүрэн эрхтэйгээр оролцох боломжтой.",
           note: "Анхааруулга: Данс нээх үед хувийн мэдээллээ дутуу, буруу оруулбал таны данс нээгдэхгүй эрсдэл үүснэ. Иймд та өөрийн хувийн мэдээллийг үнэн зөв оруулж, чанартай зураг оруулн уу."
         }
       },
@@ -260,8 +300,8 @@ export const translations = {
           description: "www.msecurities.istock.mn вэбсайт болон аппликэйшнд нэвтэрч \"нууц үг сэргээх\" хэсгийг дарж нэвтрэх нэр, нууц үгээ сэргээх, шинэчлэх боломжтой."
         },
         contactUpdate: {
-          title: "И-мэйл хаяг, утасны дугаараа өгөх боломжгүй тохиолдолд",
-          description: "Та манай брокерийн компанид иргэний үнэмлэхтэйгээ ир бүртгэлтэй утасны дугаар, и-мэйл хаягаа өөрчлөх хүсэлт гаргаж өөрчлөх боломжтой."
+          title: "И-мэйл хаяг, утасны дугаар өөрчлөгдсөн тохиолдолд",
+          description: "Та манай брокерийн компанид иргэний үнэмлэхтэйгээ ирж бүртгэлтэй утасны дугаар, и-мэйл хаягаа өөрчлөх хүсэлт гаргаж өөрчлөх боломжтой."
         }
       },
       contact: {
@@ -293,7 +333,8 @@ export const translations = {
         commonQuestions: "Түгээмэл асуултууд",
         openAccount: "Данс нээх",
         manageAccount: "Дансаа удирддах",
-        contact: "Холбоо барих"
+        contact: "Холбоо барих",
+        team: "Манай баг"
       }
     },
     footer: {
@@ -308,7 +349,7 @@ export const translations = {
         },
         phone: {
           label: "Утас",
-          numbers: ["8812-0890", "8966-6986"]
+          numbers: ["8812-0890"]
         },
         location: {
           label: "Google Maps дээрээс хайх",
@@ -344,14 +385,43 @@ export const translations = {
       },
       value: {
         title: "Үнэт зүйлс",
-        description: "Олон улсын санхүүгийн стандартыг мөрддөг, зах зээлд тэргүүлэгч үнэт цаасны компани."
+        description: "Мэргэжлийн ёс зүйтэй хөрөнгө оруулалт ба өгөөж"
       },
       introduction: {
         title: "Танилцуулга",
         organizationalHistory: {
           title: "Байгууллагын түүх",
-          description1: "М Секюритиес ҮЦК нь Монголын тэргүүлэгч МСС Холдинг ХХК-ийн охин компани бөгөөд Монгол болон гадаадын хөрөнгийн зах зээлийн оролцогчдод мэргэжлийн брокер, дилер, андеррайтер, хөрөнгө оруулалтын зөвлөх үйлчилгээг үзүүлэх зорилгоор байгуулагдсан.",
-          description2: "М Секюритиес ҮЦК нь үнэт цаасны зах зээлийн оролцогчдод цаг үеийн мэдээлэл, судалгааг хүргэх, олон улсын санхүүгийн стандартад нийцсэн загваруудыг Монголын нөхцөлд ницүүлэн, мэргэжлийн ёс зүйг баримтлан харилцагчид төвтэй үйлчилгээг шинэ технологийн боломжуудтай хослуулан өгөөжийг нь дээд зэргээр нэмэгдүүлсэн хөрөнгө оруулалтын боломжуудыг санал болгохыг зорьж байна."
+          description1: "М Секьюритис ҮЦК нь Монголын тэргүүлэгч М-Си-Эс Холдинг ХХК-ийн охин компани бөгөөд Монгол болон гадаадын хөрөнгийн зах зээлийн оролцогчдод мэргэжлийн брокерийн үйлчилгээг үзүүлэх зорилгоор байгуулагдсан.",
+          description2: "М Секьюритис ҮЦК нь үнэт цаасны зах зээлийн оролцогчдод цаг үеийн мэдээлэл, судалгааг хүргэх, олон улсын санхүүгийн стандартад нийцсэн загваруудыг Монголын нөхцөлд нийцүүлэн, мэргэжлийн ёс зүйг баримтлан харилцагчид төвтэй үйлчилгээг шинэ технологитой хослуулан санал болгохыг зорин ажиллаж байна."
+        }
+      },
+      team: {
+        title: "Манай баг",
+        members: {
+          member1: {
+            name: "Х. Мөнхжаргал",
+            position: "Гүйцэтгэх захирал"
+          },
+          member2: {
+            name: "Б. Мөнхдалай",
+            position: "Брокер"
+          },
+          member3: {
+            name: "Б. Номундарь",
+            position: "Брокер"
+          },
+          member4: {
+            name: "М. Нямдорж",
+            position: "Мэдээллийн технологийн мэргэжилтэн"
+          },
+          member5: {
+            name: "Б. Ариунзаяа",
+            position: "Нягтлан бодогч"
+          },
+          member6: {
+            name: "Б. Тэлмэн",
+            position: "Хуулийн зөвлөх"
+          }
         }
       }
     },
@@ -370,7 +440,7 @@ export const translations = {
             ]
           },
           legalEntity: {
-            title: "Хуулийн этгээд��д",
+            title: "Хуулийн этгээд",
             items: [
               "Данс нээх хүсэлт",
               "Улсын бүртгэлийн гэрчилгээ (2 нотариатаар баталгаажуулсан хуулбар)",
@@ -455,31 +525,38 @@ export const translations = {
       },
       about: {
         title: "Яагаад биднийг сонгох вэ",
-        description: "Санхүүгийн салбарт олон жилийн туршлагатай бид таны санхүүгийн зорилтод нийцсэн найдвартай, уян хатан хөрөнгө оруулалтын шийдлүүдийг санал болгодог. Манай платформ таны арилжааг хамгаалж, мэргэжлийн баг тань үргэлж туслахад бэлэн байдаг."
+        description: "Бид Монгол Улсын хөрөнгийн зах зээлд мэргэжлийн үйлчилгээ үзүүлж, таны зорилгод нийцсэн уян хатан, өндөр өгөөжтэй, санхүүгийн бүтээгдэхүүн үйлчилгээг санал болгож байна.Манай мэргэжлийн баг хамт олонтой хамт арилжааны найдвартай платформоор хөрөнгө оруулалт хийцгээе."
       },
       services: {
         title: "Манай үйлчилгээнүүд",
         trading: {
           title: "Арилжаа",
-          description: "Бодит цаг хугацааны зах зээлийн мэдээлэл, шинжилгээний хэрэгслүүдтэй манай платформ дээр төрөл бүрийн үнэт цаасыг найдвартай худалдаж авах, худалдах боломжтой."
+          description: "Зах зээлийн бодит мэдээ мэдээллийг тухай бүрт хүлээн авч, найдвартай хөрөнгө оруулалтыг манайхаар дамжуулан хийгээрэй."
         },
         portfolioManagement: {
-          title: "Багцын удирдлага",
-          description: "Манай ойлгомжтой багцын удирдлагын системээр хөрөнгө оруулалтаа хянаж, мэдээлэлтэй шийдвэр гаргаарай."
+          title: "Багцын менежмент",
+          description: "Мэргэжлийн судалгаа шинжилгээнд суурьлан системтэйгээр багцийн хөрөнгө оруулалтыг хийгээрэй."
         },
         riskManagement: {
-          title: "Эрсдэлийн удирдлага",
-          description: "Бид таны хөрөнгө оруулалт бүх зах зээлийн нөхцөлд аюулгүй байх эрсдэлийн удирдлагын стратегийг санал болгодог."
+          title: "Эрсдэлийн менежмент",
+          description: "Бид таны хөрөнгө оруулалтын бүхий л шийдвэрт эрсдэлийн удирдлагын стратегүүдийг санал болгоно."
         },
         marketAnalysis: {
           title: "Зах зээлийн шинжилгээ",
-          description: "Хамгийн сүүлийн үеийн чиг хандлага, гүйцэтгэлийн үзүүлэлтүүдийн талаарх гүнзгий шинжилгээ, ойлголтоор зах зээлээс түрүүлээрэй."
+          description: "Зах зээлийн хамгийн сүүлийн үеийн чиг хандлага, мэдээ мэдээлэл, дүн шинжилгээнүүдийг хүлээн авч түрүүлж алхацгаая."
         }
       },
       cta: {
         title: "Өнөөдөр эхэлцгээе",
-        description: "Одоо бидэнтэй хамт хөрөнгө оруулж эхлээд найдвартай санхүүгийн ирээдүй рүү эхний алхмаа хийгээрэй.",
+        description: "Бидэнтэй хамт хөрөнгө оруулж, санхүүгийн найдвартай ирээдүйрүү эхний алхамаа хийгээрэй.",
         button: "Данс үүсгэх"
+      }
+    },
+    error: {
+      404: {
+        title: "Түр хүлээгдэж байна",
+        description: "Энэ хуудас түр ашиглах боломжгүй байна.",
+        backToHome: "Нүүр хуудас руу буцах"
       }
     }
   }

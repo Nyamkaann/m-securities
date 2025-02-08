@@ -28,13 +28,6 @@ export default function Home() {
       {/* Hero Section with Carousel */}
       <section className="relative h-screen">
         <Carousel images={carouselImages} autoPlayInterval={6000} />
-        <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <button className="bg-teal-500 text-white px-8 py-4 rounded-md text-lg font-semibold 
-                           hover:bg-teal-600 transition duration-300 transform hover:scale-105
-                           shadow-lg hover:shadow-xl">
-            {t('home.hero.startInvesting')}
-          </button>
-        </div>
       </section>
 
       {/* About Section */}

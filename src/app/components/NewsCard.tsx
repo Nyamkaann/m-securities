@@ -4,9 +4,10 @@ interface NewsCardProps {
   description: string;
   category: string;
   image: string;
+  slug?: string;
 }
 
-const NewsCard = ({ title, date, description, category, image }: NewsCardProps) => {
+const NewsCard = ({ title, date, description, category, image, slug }: NewsCardProps) => {
   return (
     <div className="bg-white dark:bg-[#26282c] rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg border border-gray-100 dark:border-gray-700">
       <div className="relative w-full h-48 overflow-hidden">
@@ -25,9 +26,22 @@ const NewsCard = ({ title, date, description, category, image }: NewsCardProps) 
         <p className="text-gray-600 dark:text-gray-300 line-clamp-3">{description}</p>
       </div>
       <div className="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-        <button className="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400 font-medium">
-          Read more →
-        </button>
+        <a 
+          href={slug?.startsWith('http') || slug?.startsWith('www') ? slug : `/research/news/${slug || '#'}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center text-teal-500 hover:text-teal-600 dark:hover:text-teal-400 font-medium transition-colors duration-200"
+        >
+          Read more 
+          <svg 
+            className="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-1" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
       </div>
     </div>
   );
