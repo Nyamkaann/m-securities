@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import { Providers } from './context/providers';
 import { Roboto } from 'next/font/google';
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 // Configure Roboto font
 const roboto = Roboto({
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </Providers>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
