@@ -349,7 +349,7 @@ export const translations = {
         },
         phone: {
           label: "Утас",
-          numbers: ["8981-9938", "8966-7988"]
+          numbers: ["8812-0890", "8966-6988"]
         },
         location: {
           label: "Google Maps дээрээс хайх",
