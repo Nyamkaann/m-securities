@@ -102,8 +102,38 @@ export const translations = {
         description: "A securities company with influence in the market that complies with international financial standards."
       },
       value: {
-        title: "Value",
-        description: "It is a market-leading securities company that complies with international financial standards."
+        title: "Our Values",
+        description: "Our core values guide everything we do",
+        items: {
+          mastery: {
+            title: "MASTERY",
+            description: "Pursuing excellence in everything we do"
+          },
+          teamSpirit: {
+            title: "TEAM SPIRIT",
+            description: "Working together towards common goals"
+          },
+          leadership: {
+            title: "LEADERSHIP",
+            description: "Leading by example and inspiring others"
+          },
+          mcsSpirit: {
+            title: "MCS SPIRIT",
+            description: "Embodying the core values of MCS Group"
+          },
+          creativity: {
+            title: "CREATIVITY",
+            description: "Innovating and finding new solutions"
+          },
+          integrity: {
+            title: "INTEGRITY",
+            description: "Maintaining highest ethical standards"
+          },
+          sustainable: {
+            title: "SUSTAINABLE DEVELOPMENT",
+            description: "Building for the long-term future"
+          }
+        }
       },
       introduction: {
         title: "Introduction",
@@ -384,8 +414,38 @@ export const translations = {
         description: "Олон улсын санхүүгийн зах зээлд өрсөлдөх, дотоодын зах зээлд нөлөө бүхий мэргэжлийн оролцогч байх"
       },
       value: {
-        title: "Үнэт зүйлс",
-        description: "Мэргэжлийн ёс зүйтэй хөрөнгө оруулалт ба өгөөж"
+        title: "Бидний үнэт зүйлс",
+        description: "Бидний үндсэн үнэт зүйлс бидний бүх үйл ажиллагааг чиглүүлдэг",
+        items: {
+          mastery: {
+            title: "МЭРГЭШИЛ",
+            description: "Бид бүх зүйлд өндөр түвшинд хүрэхийг эрмэлздэг"
+          },
+          teamSpirit: {
+            title: "БАГИЙН АЖИЛЛАГАА",
+            description: "Нэгдсэн зорилгын төлөө хамтдаа ажиллах"
+          },
+          leadership: {
+            title: "МАНЛАЙЛАЛ",
+            description: "Үлгэрлэн манлайлж, бусдыг урамшуулах"
+          },
+          mcsSpirit: {
+            title: "MCS SPIRIT",
+            description: "MCS группийн үндсэн үнэт зүйлсийг баримтлах"
+          },
+          creativity: {
+            title: "БҮТЭЭЛЧ БАЙДАЛ",
+            description: "Шинэлэг шийдэл, инновацийг эрэлхийлэх"
+          },
+          integrity: {
+            title: "ШУДАРГА ЁС",
+            description: "Ёс зүйн өндөр хэм хэмжээг баримтлах"
+          },
+          sustainable: {
+            title: "ТОГТВОРТОЙ ХӨГЖИЛ",
+            description: "Урт хугацааны ирээдүйн төлөө бүтээн байгуулах"
+          }
+        }
       },
       introduction: {
         title: "Танилцуулга",
