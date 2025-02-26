@@ -117,8 +117,8 @@ const Navbar = () => {
               {renderDropdownButton('about', t('navbar.about'))}
               {renderDropdownMenu('about', [
                 { href: "/about/introduction", label: t('navbar.sections.introduction') },
-                { href: "/about/goal", label: t('navbar.sections.goal') },
                 { href: "/about/vision", label: t('navbar.sections.vision') },
+                { href: "/about/goal", label: t('navbar.sections.goal') },
                 { href: "/about/values", label: t('navbar.sections.values') },
                 { href: "/about/team", label: t('navbar.sections.team') }
               ])}

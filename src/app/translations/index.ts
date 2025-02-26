@@ -430,7 +430,7 @@ export const translations = {
             description: "Үлгэрлэн манлайлж, бусдыг урамшуулах"
           },
           mcsSpirit: {
-            title: "MCS SPIRIT",
+            title: "MCS Үнэт зүйлс",
             description: "MCS группийн үндсэн үнэт зүйлсийг баримтлах"
           },
           creativity: {
