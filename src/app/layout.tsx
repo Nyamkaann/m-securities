@@ -4,8 +4,6 @@ import Navbar from './components/navbar';
 import Footer from './components/footer';
 import { Providers } from './context/providers';
 import { Roboto } from 'next/font/google';
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
 import defaultMetadata from './metadata';
 import { Metadata } from 'next';
 
@@ -56,8 +54,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </div>
         </Providers>
-        <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );
