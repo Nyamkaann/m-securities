@@ -19,6 +19,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   ...defaultMetadata,
+  metadataBase: new URL('https://msecurities.mn'),
   alternates: {
     canonical: 'https://msecurities.mn',
     languages: {
