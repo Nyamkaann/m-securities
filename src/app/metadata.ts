@@ -24,12 +24,6 @@ const defaultMetadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'M Securities - Your Trusted Investment Partner',
-    description: 'Professional securities trading and investment services in Mongolia',
-    images: ['/twitter-image.jpg'],
-  },
 };
 
 export default defaultMetadata; 

@@ -97,12 +97,6 @@ const Values = () => {
           </div>
         ))}
       </div>
-
-      <div className="mt-16 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-        <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed text-center max-w-3xl mx-auto">
-          {t('about.value.description')}
-        </p>
-      </div>
     </div>
   );
 };
