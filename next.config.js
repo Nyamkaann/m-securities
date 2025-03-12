@@ -21,7 +21,8 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true
-  }
+  },
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://msecurities.mn' : '',
 }
 
 module.exports = nextConfig 

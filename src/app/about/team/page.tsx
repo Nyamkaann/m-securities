@@ -6,44 +6,41 @@ const Team = () => {
   const { t } = useLanguage();
   const [imageError, setImageError] = useState<{[key: string]: boolean}>({});
 
-  // Get the base URL for images
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
-
   const teamMembers = [
     {
       name: t('about.team.members.member1.name'),
       position: t('about.team.members.member1.position'),
-      image: `${baseUrl}/images/team/member1.JPG`,
+      image: '/images/team/member1.JPG',
       initials: 'ХМ'
     },
     {
       name: t('about.team.members.member2.name'),
       position: t('about.team.members.member2.position'),
-      image: `${baseUrl}/images/team/member2.JPG`,
+      image: '/images/team/member2.JPG',
       initials: 'БМ'
     },
     {
       name: t('about.team.members.member3.name'),
       position: t('about.team.members.member3.position'),
-      image: `${baseUrl}/images/team/member3.JPG`,
+      image: '/images/team/member3.JPG',
       initials: 'БН'
     },
     {
       name: t('about.team.members.member4.name'),
       position: t('about.team.members.member4.position'),
-      image: `${baseUrl}/images/team/member4.JPG`,
+      image: '/images/team/member4.JPG',
       initials: 'МН'
     },
     {
       name: t('about.team.members.member5.name'),
       position: t('about.team.members.member5.position'),
-      image: `${baseUrl}/images/team/member5.JPG`,
+      image: '/images/team/member5.JPG',
       initials: 'БА'
     },
     {
       name: t('about.team.members.member6.name'),
       position: t('about.team.members.member6.position'),
-      image: `${baseUrl}/images/team/member6.JPG`,
+      image: '/images/team/member6.JPG',
       initials: 'БТ'
     },
   ];
