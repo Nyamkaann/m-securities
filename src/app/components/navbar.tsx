@@ -186,8 +186,194 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4">
-            {/* Add your mobile menu items here */}
+          <div className="md:hidden mt-4 border-t border-gray-100 dark:border-gray-700">
+            <div className="space-y-2 py-3">
+              {/* About Mobile Dropdown */}
+              <div>
+                <button
+                  onClick={(e) => handleDropdownClick('about-mobile', e)}
+                  className={`w-full text-left px-4 py-2 flex justify-between items-center
+                             ${activeDropdown === 'about-mobile' 
+                               ? 'text-teal-500 dark:text-teal-400 bg-gray-50 dark:bg-gray-800/40' 
+                               : 'text-gray-700 dark:text-gray-200'}`}
+                >
+                  {t('navbar.about')}
+                  <svg 
+                    className={`w-4 h-4 transform transition-transform duration-200 ${
+                      activeDropdown === 'about-mobile' ? 'rotate-180' : ''
+                    }`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {activeDropdown === 'about-mobile' && (
+                  <div className="pl-4 py-2 space-y-2">
+                    {[
+                      { href: "/about/introduction", label: t('navbar.sections.introduction') },
+                      { href: "/about/vision", label: t('navbar.sections.vision') },
+                      { href: "/about/goal", label: t('navbar.sections.goal') },
+                      { href: "/about/values", label: t('navbar.sections.values') },
+                      { href: "/about/team", label: t('navbar.sections.team') }
+                    ].map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="block px-4 py-2 text-sm text-gray-600 dark:text-gray-300
+                                 hover:text-teal-500 dark:hover:text-teal-400"
+                        onClick={handleLinkClick}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Services Mobile Dropdown */}
+              <div>
+                <button
+                  onClick={(e) => handleDropdownClick('services-mobile', e)}
+                  className={`w-full text-left px-4 py-2 flex justify-between items-center
+                             ${activeDropdown === 'services-mobile' 
+                               ? 'text-teal-500 dark:text-teal-400 bg-gray-50 dark:bg-gray-800/40' 
+                               : 'text-gray-700 dark:text-gray-200'}`}
+                >
+                  {t('navbar.services')}
+                  <svg 
+                    className={`w-4 h-4 transform transition-transform duration-200 ${
+                      activeDropdown === 'services-mobile' ? 'rotate-180' : ''
+                    }`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {activeDropdown === 'services-mobile' && (
+                  <div className="pl-4 py-2 space-y-2">
+                    {[
+                      { href: "/services/broker", label: t('navbar.sections.broker') },
+                      { href: "/services/underwriter", label: t('navbar.sections.underwriter') },
+                      { href: "/services/investment-advisor", label: t('navbar.sections.investmentAdvisor') },
+                      { href: "/services/mining-broker", label: t('navbar.sections.miningBroker') }
+                    ].map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="block px-4 py-2 text-sm text-gray-600 dark:text-gray-300
+                                 hover:text-teal-500 dark:hover:text-teal-400"
+                        onClick={handleLinkClick}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Research Mobile Dropdown */}
+              <div>
+                <button
+                  onClick={(e) => handleDropdownClick('research-mobile', e)}
+                  className={`w-full text-left px-4 py-2 flex justify-between items-center
+                             ${activeDropdown === 'research-mobile' 
+                               ? 'text-teal-500 dark:text-teal-400 bg-gray-50 dark:bg-gray-800/40' 
+                               : 'text-gray-700 dark:text-gray-200'}`}
+                >
+                  {t('navbar.research')}
+                  <svg 
+                    className={`w-4 h-4 transform transition-transform duration-200 ${
+                      activeDropdown === 'research-mobile' ? 'rotate-180' : ''
+                    }`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {activeDropdown === 'research-mobile' && (
+                  <div className="pl-4 py-2 space-y-2">
+                    {[
+                      { href: "/research/news", label: t('navbar.sections.news') },
+                      { href: "/research/analysis", label: t('navbar.sections.analysis') }
+                    ].map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="block px-4 py-2 text-sm text-gray-600 dark:text-gray-300
+                                 hover:text-teal-500 dark:hover:text-teal-400"
+                        onClick={handleLinkClick}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* FAQs Mobile Dropdown */}
+              <div>
+                <button
+                  onClick={(e) => handleDropdownClick('faqs-mobile', e)}
+                  className={`w-full text-left px-4 py-2 flex justify-between items-center
+                             ${activeDropdown === 'faqs-mobile' 
+                               ? 'text-teal-500 dark:text-teal-400 bg-gray-50 dark:bg-gray-800/40' 
+                               : 'text-gray-700 dark:text-gray-200'}`}
+                >
+                  {t('navbar.faqs')}
+                  <svg 
+                    className={`w-4 h-4 transform transition-transform duration-200 ${
+                      activeDropdown === 'faqs-mobile' ? 'rotate-180' : ''
+                    }`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {activeDropdown === 'faqs-mobile' && (
+                  <div className="pl-4 py-2 space-y-2">
+                    {[
+                      { href: "/faq/common-questions", label: t('navbar.sections.commonQuestions') },
+                      { href: "/faq/manage-account", label: t('navbar.sections.manageAccount') },
+                      { href: "/faq/contact", label: t('navbar.sections.contact') }
+                    ].map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="block px-4 py-2 text-sm text-gray-600 dark:text-gray-300
+                                 hover:text-teal-500 dark:hover:text-teal-400"
+                        onClick={handleLinkClick}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Mobile Bottom Section */}
+              <div className="pt-4 mt-4 border-t border-gray-100 dark:border-gray-700">
+                <div className="px-4 flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <LanguageSwitcher />
+                    <DarkModeToggle />
+                  </div>
+                  <Link href="/trade">
+                    <button className="bg-teal-500 text-white px-4 py-2 rounded-md text-sm font-medium
+                                     hover:bg-teal-600 transition duration-200">
+                      {t('navbar.trade')}
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>
