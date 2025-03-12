@@ -1,48 +1,49 @@
 'use client';
 import { useLanguage } from '../../context/LanguageContext';
-import Image from 'next/image';
 import { useState } from 'react';
 
 const Team = () => {
   const { t } = useLanguage();
   const [imageError, setImageError] = useState<{[key: string]: boolean}>({});
 
-  // Define image paths with explicit public URL structure
+  // Get the base URL for images
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
+
   const teamMembers = [
     {
       name: t('about.team.members.member1.name'),
       position: t('about.team.members.member1.position'),
-      image: '/images/team/member1.JPG',
+      image: `${baseUrl}/images/team/member1.JPG`,
       initials: 'ХМ'
     },
     {
       name: t('about.team.members.member2.name'),
       position: t('about.team.members.member2.position'),
-      image: '/images/team/member2.JPG',
+      image: `${baseUrl}/images/team/member2.JPG`,
       initials: 'БМ'
     },
     {
       name: t('about.team.members.member3.name'),
       position: t('about.team.members.member3.position'),
-      image: '/images/team/member3.JPG',
+      image: `${baseUrl}/images/team/member3.JPG`,
       initials: 'БН'
     },
     {
       name: t('about.team.members.member4.name'),
       position: t('about.team.members.member4.position'),
-      image: '/images/team/member4.JPG',
+      image: `${baseUrl}/images/team/member4.JPG`,
       initials: 'МН'
     },
     {
       name: t('about.team.members.member5.name'),
       position: t('about.team.members.member5.position'),
-      image: '/images/team/member5.JPG',
+      image: `${baseUrl}/images/team/member5.JPG`,
       initials: 'БА'
     },
     {
       name: t('about.team.members.member6.name'),
       position: t('about.team.members.member6.position'),
-      image: '/images/team/member6.JPG',
+      image: `${baseUrl}/images/team/member6.JPG`,
       initials: 'БТ'
     },
   ];
@@ -70,15 +71,11 @@ const Team = () => {
                           border-4 border-teal-500 shadow-lg
                           transition-transform duration-300 group-hover:scale-105">
               {!imageError[index] ? (
-                <Image
+                <img
                   src={member.image}
                   alt={member.name}
-                  width={192}
-                  height={192}
-                  className="object-cover w-full h-full"
+                  className="w-full h-full object-cover"
                   onError={() => handleImageError(index)}
-                  priority={true}
-                  unoptimized={true}
                   loading="eager"
                 />
               ) : (
