@@ -1,16 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   images: {
     unoptimized: true,
-    domains: ['localhost', 'msecurities.mn'],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'msecurities.mn',
+        hostname: '**',
       },
       {
         protocol: 'http',
-        hostname: 'localhost',
+        hostname: '**',
       }
     ]
   },
