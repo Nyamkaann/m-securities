@@ -41,6 +41,7 @@ const Team = () => {
   ];
 
   const handleImageError = (index: number) => {
+    console.error(`Image failed to load for ${teamMembers[index].name}`);
     setImageError(prev => ({ ...prev, [index]: true }));
   };
 
@@ -65,13 +66,12 @@ const Team = () => {
                 <Image
                   src={member.image}
                   alt={member.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw,
-                         (max-width: 1200px) 50vw,
-                         33vw"
+                  width={192}
+                  height={192}
+                  className="object-cover w-full h-full"
                   onError={() => handleImageError(index)}
-                  priority={index < 3} // Prioritize loading first 3 images
+                  priority={true}
+                  unoptimized={true}
                 />
               ) : (
                 <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
