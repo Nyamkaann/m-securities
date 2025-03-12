@@ -19,15 +19,6 @@ const ManageAccount = () => {
             {t('faq.accountManagement.forgotPassword.description')}
           </p>
         </div>
-
-        <div className="bg-white dark:bg-[#26282c] p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
-          <h3 className="text-xl font-medium text-gray-800 dark:text-gray-100 mb-4">
-            {t('faq.accountManagement.contactUpdate.title')}
-          </h3>
-          <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed transition-all duration-300 ease-in-out hover:translate-x-2">
-            {t('faq.accountManagement.contactUpdate.description')}
-          </p>
-        </div>
       </div>
     </div>
   );

@@ -16,10 +16,6 @@ export const translations = {
         forgotPassword: {
           title: "In case you forget your password",
           description: "You can log in to www.msecurities.istock.mn website and app and click on the \"forgot password\" section to recover and update your login and password."
-        },
-        contactUpdate: {
-          title: "In case you cannot provide your email address and phone number",
-          description: "You can visit our brokerage company with your ID card. You can change your registered phone number and email address by coming and submitting a request."
         }
       },
       contact: {
@@ -91,15 +87,15 @@ export const translations = {
       goal: {
         title: "Goal",
         items: [
-          "To be a provider of optimal investment solutions based on innovative systems",
-          "To deliver information to clients in a timely manner",
-          "To be a trusted partner in the securities market",
-          "To work with professional research and analysis as a principle"
+          "To offer global financial services; ",
+          "To be a leader by investment decision based on high technology; ",
+          "To deliver significant information and research of market; ",
+          "To be an allegiant and graceful team; "
         ]
       },
       vision: {
         title: "Vision",
-        description: "A securities company with influence in the market that complies with international financial standards."
+        description: "A influential securities company in the domestic market and a contender in the global financial market."
       },
       value: {
         title: "Our Values",
@@ -139,7 +135,7 @@ export const translations = {
         title: "Introduction",
         organizationalHistory: {
           title: "Organizational History",
-          description1: "M Securities LLC is a subsidiary of the leading Mongolian company MCS Holding LLC and was established to provide professional brokerage, dealer, underwriting and investment advisory services to Mongolian and foreign capital market participants.",
+          description1: "M Securities UTsK LLC is a subsidiary of the MCS group and we aims to provide securities market participants with most significant information and research, offer services that meet the international financial standards with new technological opportunities. ",
           description2: "M Securities LLC aims to provide securities market participants with timely market information and research, adapt models that meet international financial standards to the conditions of Mongolia, and offer investment opportunities with the highest returns by combining customer-centric services with new technological opportunities, while respecting professional ethics."
         }
       },
@@ -328,7 +324,7 @@ export const translations = {
         forgotPassword: {
           title: "Нууц үгээ мартсан тохиолдолд",
           description: "www.msecurities.istock.mn вэбсайт болон аппликэйшнд нэвтэрч \"нууц үг сэргээх\" хэсгийг дарж нэвтрэх нэр, нууц үгээ сэргээх, шинэчлэх боломжтой."
-        },
+        }
       },
       contact: {
         title: "Холбоо барих",
