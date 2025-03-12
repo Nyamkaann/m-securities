@@ -6,41 +6,48 @@ const Team = () => {
   const { t } = useLanguage();
   const [imageError, setImageError] = useState<{[key: string]: boolean}>({});
 
+  const getImagePath = (path: string) => {
+    if (typeof window !== 'undefined') {
+      return window.location.origin + path;
+    }
+    return path;
+  };
+
   const teamMembers = [
     {
       name: t('about.team.members.member1.name'),
       position: t('about.team.members.member1.position'),
-      image: '/images/team/member1.JPG',
+      image: getImagePath('/images/team/member1.JPG'),
       initials: 'ХМ'
     },
     {
       name: t('about.team.members.member2.name'),
       position: t('about.team.members.member2.position'),
-      image: '/images/team/member2.JPG',
+      image: getImagePath('/images/team/member2.JPG'),
       initials: 'БМ'
     },
     {
       name: t('about.team.members.member3.name'),
       position: t('about.team.members.member3.position'),
-      image: '/images/team/member3.JPG',
+      image: getImagePath('/images/team/member3.JPG'),
       initials: 'БН'
     },
     {
       name: t('about.team.members.member4.name'),
       position: t('about.team.members.member4.position'),
-      image: '/images/team/member4.JPG',
+      image: getImagePath('/images/team/member4.JPG'),
       initials: 'МН'
     },
     {
       name: t('about.team.members.member5.name'),
       position: t('about.team.members.member5.position'),
-      image: '/images/team/member5.JPG',
+      image: getImagePath('/images/team/member5.JPG'),
       initials: 'БА'
     },
     {
       name: t('about.team.members.member6.name'),
       position: t('about.team.members.member6.position'),
-      image: '/images/team/member6.JPG',
+      image: getImagePath('/images/team/member6.JPG'),
       initials: 'БТ'
     },
   ];
