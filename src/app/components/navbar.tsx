@@ -157,7 +157,7 @@ const Navbar = () => {
 
           {/* Desktop Right Section */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="https://msec.istock.mn/auth/login">
+            <Link href="https://trader.msecurities.mn/auth/login?callbackUrl=/dashboard/profile/info/stock">
               <button className="bg-teal-500 text-white px-6 py-3 rounded-lg font-semibold 
                                hover:bg-teal-600 transition duration-300 text-lg
                                shadow-sm hover:shadow-md">
@@ -365,7 +365,7 @@ const Navbar = () => {
                     <LanguageSwitcher />
                     <DarkModeToggle />
                   </div>
-                  <Link href="https://msec.istock.mn/auth/login">
+                  <Link href="https://trader.msecurities.mn/auth/login?callbackUrl=/dashboard/profile/info/stock">
                     <button className="bg-teal-500 text-white px-4 py-2 rounded-md text-sm font-medium
                                      hover:bg-teal-600 transition duration-200">
                       {t('navbar.trade')}
