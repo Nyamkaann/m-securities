@@ -252,7 +252,7 @@ const Footer = () => {
 
             {/* Location Link */}
             <Link 
-              href="https://maps.google.com/?q=M+Securities"
+              href="https://maps.google.com/?q=401+New+Horizons+Office,+Sukhbaatar+District,+Ulaanbaatar+city,+Ulaanbaatar+14210,+Mongolia"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 
@@ -277,7 +277,7 @@ const Footer = () => {
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" 
                 />
               </svg>
-              <span className="hover:underline">{t('footer.contactUs.location.text')}</span>
+              <span className="hover:underline">401 New Horizons Office, Sukhbaatar District<br/>Ulaanbaatar city, Ulaanbaatar 14210, Mongolia</span>
             </Link>
           </div>
         </div>
