@@ -63,7 +63,7 @@ export const translations = {
         },
         phone: {
           label: "Phone",
-          numbers: ["8981-9938 , 8966-7988"]
+          numbers: ["+976-99820776"]
         },
         location: {
           label: "Find us on Google Maps",
@@ -371,7 +371,7 @@ export const translations = {
         },
         phone: {
           label: "Утас",
-          numbers: ["8812-0890", "8966-6988"]
+          numbers: ["+976-99820776"]
         },
         location: {
           label: "Google Maps дээрээс хайх",

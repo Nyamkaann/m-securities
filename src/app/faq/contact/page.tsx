@@ -19,7 +19,7 @@ const Contact = () => {
           <div className="space-y-4">
             <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed transition-all duration-300 ease-in-out hover:translate-x-2">
               <span className="font-medium">{t('faq.contact.phone')}</span>{' '}
-              <Link href="tel:8981-9938 8966-6988" className="text-teal-600 dark:text-teal-400 hover:underline">8981-9938 8966-6988</Link>
+              <Link href="tel:+976-99820776" className="text-teal-600 dark:text-teal-400 hover:underline">+976-99820776</Link>
             </p>
             <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed transition-all duration-300 ease-in-out hover:translate-x-2">
               <span className="font-medium">{t('faq.contact.email')}</span>{' '}
