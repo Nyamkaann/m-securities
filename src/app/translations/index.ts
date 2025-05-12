@@ -147,11 +147,11 @@ export const translations = {
             position: "CEO"
           },
           member2: {
-            name: "Munkhdalai B",
+            name: "Narankhuu S",
             position: "Broker"
           },
           member3: {
-            name: "Nomundar B",
+            name: "Nomundari B",
             position: "Broker"
           },
           member4: {
@@ -161,12 +161,12 @@ export const translations = {
 
           member5: {
             name: "Ariunzaya B",
-            position: "Accountant"
+            position: "Chief Accountant"
           },
 
           member6: {
             name: "Telmen B",
-            position: "Legal Advisor"
+            position: "Legal Specialist"
           }
 
         }
@@ -455,7 +455,7 @@ export const translations = {
             position: "Гүйцэтгэх захирал"
           },
           member2: {
-            name: "Б. Мөнхдалай",
+            name: "С. Наранхүү",
             position: "Брокер"
           },
           member3: {
@@ -472,7 +472,7 @@ export const translations = {
           },
           member6: {
             name: "Б. Тэлмэн",
-            position: "Ахлах Хуулийн зөвлөх"
+            position: "Хуулийн мэргэжилтэн"
           }
         }
       }
