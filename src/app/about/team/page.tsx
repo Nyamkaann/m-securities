@@ -17,37 +17,37 @@ const Team = () => {
     {
       name: t('about.team.members.member1.name'),
       position: t('about.team.members.member1.position'),
-      image: getImagePath('/images/team/member1.JPG'),
+      image: getImagePath('/images/team/member1.jpg'),
       initials: 'ХМ'
     },
     {
       name: t('about.team.members.member2.name'),
       position: t('about.team.members.member2.position'),
-      image: getImagePath('/images/team/member2.JPG'),
+      image: getImagePath('/images/team/member2.jpg'),
       initials: 'БМ'
     },
     {
       name: t('about.team.members.member3.name'),
       position: t('about.team.members.member3.position'),
-      image: getImagePath('/images/team/member3.JPG'),
+      image: getImagePath('/images/team/member3.jpg'),
       initials: 'БН'
     },
     {
       name: t('about.team.members.member4.name'),
       position: t('about.team.members.member4.position'),
-      image: getImagePath('/images/team/member4.JPG'),
+      image: getImagePath('/images/team/member4.jpg'),
       initials: 'МН'
     },
     {
       name: t('about.team.members.member5.name'),
       position: t('about.team.members.member5.position'),
-      image: getImagePath('/images/team/member5.JPG'),
+      image: getImagePath('/images/team/member5.jpg'),
       initials: 'БА'
     },
     {
       name: t('about.team.members.member6.name'),
       position: t('about.team.members.member6.position'),
-      image: getImagePath('/images/team/member6.JPG'),
+      image: getImagePath('/images/team/member6.jpg'),
       initials: 'БТ'
     },
   ];
