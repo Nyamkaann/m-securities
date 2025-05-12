@@ -63,7 +63,7 @@ export const translations = {
         },
         phone: {
           label: "Phone",
-          numbers: ["+976-99820776"]
+          numbers: ["+976-99820776", "+976-89819938", "+976-86095119"]
         },
         location: {
           label: "Find us on Google Maps",
@@ -87,15 +87,15 @@ export const translations = {
       goal: {
         title: "Goal",
         items: [
-          "To offer global financial services; ",
-          "To be a leader by investment decision based on high technology; ",
-          "To deliver significant information and research of market; ",
-          "To be an allegiant and graceful team; "
+          "To offer globally competitive financial services ",
+          "To lead through investment decisions powered by advanced technology ",
+          "To provide timely and insightful market information and research ",
+          "To build a loyal, professional, and collaborative team "
         ]
       },
       vision: {
         title: "Vision",
-        description: "A influential securities company in the domestic market and a contender in the global financial market."
+        description: "To be a leading force in Mongolia's securities market and an emerging player in the global financial arena."
       },
       value: {
         title: "Our Values",
@@ -103,19 +103,19 @@ export const translations = {
         items: {
           mastery: {
             title: "MASTERY",
-            description: "Pursuing excellence in everything we do"
+            description: "We pursue excellence in everything we do, constantly striving to raise our standards."
           },
           teamSpirit: {
             title: "TEAM SPIRIT",
-            description: "Working together towards common goals"
+            description: "We work collaboratively toward common goals, supporting each other along the way."
           },
           leadership: {
             title: "LEADERSHIP",
-            description: "Leading by example and inspiring others"
+            description: "We lead by example, inspiring those around us through our actions and commitment."
           },
           mcsSpirit: {
             title: "MCS SPIRIT",
-            description: "Embodying the core values of MCS Group"
+            description: "We embrace innovation and seek out new solutions to challenges."
           },
           creativity: {
             title: "CREATIVITY",
@@ -123,11 +123,11 @@ export const translations = {
           },
           integrity: {
             title: "INTEGRITY",
-            description: "Maintaining highest ethical standards"
+            description: "We uphold the highest ethical standards in all our decisions and interactions."
           },
           sustainable: {
             title: "SUSTAINABLE DEVELOPMENT",
-            description: "Building for the long-term future"
+            description: "We are committed to building a future that is responsible, resilient, and long-lasting."
           }
         }
       },
@@ -135,8 +135,8 @@ export const translations = {
         title: "Introduction",
         organizationalHistory: {
           title: "Organizational History",
-          description1: "M Securities UTsK LLC is a subsidiary of the MCS group and we aims to provide securities market participants with most significant information and research, offer services that meet the international financial standards with new technological opportunities. ",
-          description2: "M Securities LLC aims to provide securities market participants with timely market information and research, adapt models that meet international financial standards to the conditions of Mongolia, and offer investment opportunities with the highest returns by combining customer-centric services with new technological opportunities, while respecting professional ethics."
+          description1: "M Securities SC LLC is a subsidiary of the MCS Group. We aim to provide capital market participants with timely and essential information and research, offering services that meet international financial standards by leveraging new technological opportunities. ",
+          description2: "M Securities SC LLC is committed to delivering up-to-date market insights and analysis, adapting international standards to the Mongolian context, and offering high-return investment opportunities. We combine customer-centric services with technological innovation, while upholding the highest standards of professional ethics."
         }
       },
       team: {
@@ -176,13 +176,13 @@ export const translations = {
       title: "Our Services",
       broker: {
         title: "Broker Services",
-        description: "M Securities Securities Company is ready to help you take advantage of investment opportunities. Our professional team provides brokerage services for your investment portfolio, including financial situation analysis and risk assessment.",
+        description: "M Securities SC is committed to helping you take full advantage of investment opportunities. Our experienced team offers comprehensive brokerage services tailored to your investment portfolio, including financial situation analysis and risk assessment.",
         requiredDocs: {
           title: "Required Documents",
           citizen: {
             title: "For Citizens",
             items: [
-              "Request for opening an account",
+              "Account opening request",
               "Citizenship card"
             ]
           },
@@ -192,10 +192,10 @@ export const translations = {
               "Account opening request",
               "State registration certificate (2 notarized copies)",
               "Official brokerage service request letter (2 copies)",
-              "Authorized person's notarized signature and seal (2 copies)",
-              "Authorized person's identification documents",
+              "Notarized signature and seal of the authorized representative (2 copies)",
+              "Identification documents of the authorized representative",
               "NBTC account agreement",
-              "Entity charter (2 notarized copies)"
+              "Entity charter (2 notarized copies)",
             ]
           },
           foreignCitizen: {
@@ -371,7 +371,7 @@ export const translations = {
         },
         phone: {
           label: "Утас",
-          numbers: ["+976-99820776"]
+          numbers: ["+976-99820776", "+976-89819938", "+976-86095119"]
         },
         location: {
           label: "Google Maps дээрээс хайх",
@@ -476,7 +476,8 @@ export const translations = {
           }
         }
       }
-    },
+    }, 
+    
     services: {
       title: "Үйлчилгээнүүд",
       broker: {
