@@ -2,7 +2,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { translations } from '../translations';
 
-type Language = 'en' | 'mn';
+type Language = 'mn' | 'en';
 
 type TranslationKey = string;
 type TranslationValue = string | string[] | Record<string, string>;
@@ -20,7 +20,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('mn');
 
   // Load saved language preference on mount
   useEffect(() => {
