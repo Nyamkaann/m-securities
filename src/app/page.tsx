@@ -104,7 +104,7 @@ export default function Home() {
       <section className="py-12 px-6 bg-teal-500 dark:bg-teal-600 text-white text-center transition-colors duration-200">
         <h2 className="text-3xl font-semibold mb-4">{t('home.cta.title')}</h2>
         <p className="text-lg mb-6 text-white/90">{t('home.cta.description')}</p>
-        <Link href="/signup">
+        <Link href="https://trader.msecurities.mn/">
           <button className="bg-white text-teal-500 px-8 py-3 rounded-md font-semibold 
                            hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl">
             {t('home.cta.button')}
