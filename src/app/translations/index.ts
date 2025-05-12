@@ -23,6 +23,93 @@ export const translations = {
         subtitle: "For information on securities trading",
         phone: "Phone",
         email: "Email"
+      },
+      commonQuestions: {
+        title: "Common Questions",
+        questions: [
+          {
+            question: "What are stocks and bonds? What's the difference?",
+            answer: "A stock is a security that represents ownership in a company, entitling the shareholder to a portion of the company's assets and profits.\nA bond is a debt instrument issued by a company or government, representing a loan made by the investor, which is repaid with interest after a specified period.\n\nDifference:\nStockholders are owners and may receive dividends and voting rights, while bondholders are lenders who receive fixed interest but no ownership rights."
+          },
+          {
+            question: "What is a dividend?",
+            answer: "A dividend is a portion of a company's profit distributed to shareholders. It can be paid in cash or as additional shares."
+          },
+          {
+            question: "What is the difference between the primary and secondary markets?",
+            answer: "In the primary market, a company offers new securities to the public for the first time.\nIn the secondary market, existing securities are traded among investors."
+          },
+          {
+            question: "What does it mean to open an account with a brokerage firm (ÜCK)?",
+            answer: "By opening an account with a securities company (ÜCK), you become an official investor, enabling you to buy, sell, and hold securities on the stock market."
+          },
+          {
+            question: "What are nominee and beneficiary accounts? What is the Central Securities Depository (ÜCTHT) account?",
+            answer: "Nominee account: An account at the brokerage firm where securities are held in the name of the firm on your behalf.\n\nBeneficiary account: An account at the Central Securities Depository (ÜCTHT) that registers the actual (final) owner of the securities.\n\nÜCTHT account: The main system for registering, storing, and transferring securities."
+          },
+          {
+            question: "How does trading work?",
+            answer: "Trades are conducted through the electronic system of the Mongolian Stock Exchange (MSE). Investors submit orders via brokerage firms, and trades occur based on market prices."
+          },
+          {
+            question: "How can I sell my securities? How do I receive the money?",
+            answer: "You must contact your brokerage firm and submit a sell order. Once the trade is successful, your securities are transferred, and the proceeds are sent to your linked bank account."
+          },
+          {
+            question: "What is KYC?",
+            answer: "KYC (Know Your Customer) is a regulatory process for verifying and identifying customers to prevent illegal activities."
+          },
+          {
+            question: "Can I transfer my securities to another person?",
+            answer: "Yes, you can transfer your securities to another person by submitting a request through your brokerage firm, which will handle the necessary registration."
+          },
+          {
+            question: "Do I have to pay fees or taxes?",
+            answer: "Yes. You must pay brokerage and exchange fees for each transaction. If you sell securities at a profit, a 10% capital gains tax applies."
+          },
+          {
+            question: "Can I register with your company if I'm already registered with another brokerage?",
+            answer: "Yes, even if you are registered with another firm, you can still open an account with us and transfer your securities. You may be registered with up to 5 brokerage firms simultaneously."
+          }
+        ],
+        trading: {
+          title: "About Trading",
+          questions: [
+            {
+              question: "What are the trading hours of the Mongolian Stock Exchange (MSE)?",
+              answer: "On business days:\n\n09:00–10:00: Pre-order session (pre-open)\n10:00–13:00: Active trading session\nAfter 13:00: Post-trade processing\n\nYou can place orders anytime, but they will be executed during the trading hours."
+            },
+            {
+              question: "Can my order be unfulfilled?",
+              answer: "Yes, your order may not be executed if:\n- Your price does not match the market price,\n- There is no matching counter-order,\n- Your account lacks sufficient funds or securities."
+            },
+            {
+              question: "When do I need to pay for the securities I buy?",
+              answer: "You must have enough funds in your account at the time of placing your order. If the trade is successful, the payment will be processed automatically on the second business day after the trade (T+2)."
+            },
+            {
+              question: "When will I receive the money from the securities I sold?",
+              answer: "After a successful sale, the funds will be transferred to your bank account via the brokerage firm on the second business day after the trade (T+2)."
+            }
+          ]
+        },
+        account: {
+          title: "About Accounts",
+          questions: [
+            {
+              question: "How do I open an account?",
+              answer: "You can register online or in person at our office:\nNew Horizon Tower, 4th floor, room 401."
+            },
+            {
+              question: "How do I fund my account?",
+              answer: "Log in to your account at https://trader.msecurities.mn/dashboard/app, click on 'DEPOSIT' at the top right, choose the account you wish to fund, and complete the transaction. Make sure to write the correct payment reference."
+            },
+            {
+              question: "What if I wrote the wrong reference for my deposit?",
+              answer: "You can visit us in person or send a correction request to our email address to have it fixed."
+            }
+          ]
+        }
       }
     },
     navbar: {
@@ -331,6 +418,93 @@ export const translations = {
         subtitle: "Үнэт цаасны арилжааны талаар",
         phone: "Утас",
         email: "И-мэйл"
+      },
+      commonQuestions: {
+        title: "Ерөнхий асуултууд",
+        questions: [
+          {
+            question: "Хувьцаа, бонд гэж юу вэ? Ялгаа?",
+            answer: "Хувьцаа нь компанийн өмчид хөрөнгө оруулсан хувьцаа эзэмшигчийг илэрхийлдэг үнэт цаас юм. Бонд нь компанийн эсвэл төрийн байгууллагын зээлийг илэрхийлсэн, тодорхой хугацааны дараа үндсэн мөнгө болон хүүтэй нь буцаан төлөгдөх үүрэг бүхий үнэт цаас юм.\n\nЯлгаа нь: Хувьцаа эзэмшигч нь компанийн ашгаас ногдол ашиг авах, санал өгөх эрхтэй бол, бонд эзэмшигч нь зээлдүүлэгч тул зөвхөн тогтмол хүү авах эрхтэй."
+          },
+          {
+            question: "Ногдол ашиг гэж юу вэ?",
+            answer: "Ногдол ашиг нь компани ашигтай ажилласны дараа хувьцаа эзэмшигчдэд хуваарилж буй ашиг юм. Энэ нь мөнгөн хэлбэрээр болон нэмэлт хувьцаа хэлбэрээр олгогдож болно."
+          },
+          {
+            question: "Анхдагч болон Хоёрдогч зах зээлийн ялгаа",
+            answer: "Анхдагч зах зээл дээр компани шинэ үнэт цаасаа олон нийтэд анх удаа санал болгодог. Хоёрдогч зах зээл дээр аль хэдийн гаргасан үнэт цааснуудыг хөрөнгө оруулагчид хоорондоо арилждаг."
+          },
+          {
+            question: "ҮЦК-нд данс нээлгэх гэж юу вэ?",
+            answer: "Үнэт цаасны компанид (ҮЦК) данс нээлгэснээр та хөрөнгийн зах зээл дээр үнэт цаас худалдаж авах, зарах, эзэмших боломжтой албан ёсны хөрөнгө оруулагч болно."
+          },
+          {
+            question: "Номинал данс, Бенефициар данс гэж юу вэ? ҮЦТХТ-ийн данс гэж юу вэ?",
+            answer: "Номинал данс нь ҮЦК-д нээгддэг, таны үнэт цаасыг нэрийн өмнөөс хадгалдаг данс юм.\n\nБенефициар данс нь ҮЦТХТ-д (Үнэт Цаасны Төвлөрсөн Хадгаламжийн Төв) бүртгэгдсэн эцсийн (жинхэнэ) эзэмшигчийн данс.\n\nҮЦТХТ-ийн данс нь үнэт цаас хадгалах, шилжүүлэх үндсэн бүртгэлийн систем юм."
+          },
+          {
+            question: "Арилжаа ямар зарчимаар явагддаг вэ?",
+            answer: "Арилжаа нь Монголын Хөрөнгийн Бирж (МХБ)-ийн цахим системээр явагддаг. Хөрөнгө оруулагч үнэт цаасны компанид хүсэлтээ өгч, зах зээлийн ханшийн дагуу арилжаанд оролцдог."
+          },
+          {
+            question: "Хэрхэн үнэт цаасаа зарах вэ? Мөнгөө хэрхэн авах вэ?",
+            answer: "Та ҮЦК-д хандаж, зарах хүсэлт гаргана. Арилжаа амжилттай болсны дараа үнэт цаас тань шилжиж, мөнгө нь таны холбосон банкны данс руу шилждэг."
+          },
+          {
+            question: "KYC гэж юу вэ?",
+            answer: "KYC буюу \"Know Your Customer\" нь харилцагчийн мэдээллийг таньж, үнэлэх хууль, журмын дагуу хийгддэг танилт баталгаажуулалтын процесс юм."
+          },
+          {
+            question: "Өөрийн үнэт цаасаа хүнд өгч болох уу?",
+            answer: "Та үнэт цаасаа өөрийн нэр дээрээс бусдад шилжүүлэх боломжтой. Үүний тулд ҮЦК-ээр дамжуулан шилжүүлэх хүсэлт гаргаж, зохих бүртгэл хийгдэнэ."
+          },
+          {
+            question: "Би шимтгэл төлөх үү? Татвар төлөх үү?",
+            answer: "Тийм. Арилжаанд оролцох бүрт ҮЦК болон биржийн шимтгэл төлнө. Мөн үнэт цаасаа ашигтайгаар борлуулсан тохиолдолд 10%-ийн хөрөнгийн өсөлтийн албан татвар төлнө."
+          },
+          {
+            question: "Өөр ҮЦК-д бүртгэлтэй бол танайд бүртгүүлж болох уу?",
+            answer: "Болно. Та өөр ҮЦК-д бүртгэлтэй байсан ч, манай компанид данс нээж, үнэт цаас шилжүүлэн, арилжаанд оролцох боломжтой. Та хамгийн дээд талдаа 5 үнэт цаасны компанид бүртгэлтэй байх эрхтэй."
+          }
+        ],
+        trading: {
+          title: "АРИЛЖААНЫ ТАЛААР",
+          questions: [
+            {
+              question: "Монголын Хөрөнгийн Биржийн арилжаа ямар хугацаанд явагддаг вэ?",
+              answer: "Ажлын өдрүүдэд:\n\n09:00–10:00 – Урьдчилсан захиалга хүлээн авах (pre-open),\n\n10:00–13:00 – Идэвхтэй арилжаа (trading session),\n\n13:00 цагаас хойш – Арилжааны дараах үе шат явагдана (post-trade processing)\n\nЭнэ цагаас өмнө хэдийд ч захиалгаа өгөх боломжтой ба арилжааны цагт таны өгсөн захиалга биелэх юм."
+            },
+            {
+              question: "Миний захиалга биелэхгүй байх боломжтой юу?",
+              answer: "Тийм, таны захиалга дараах шалтгаанаар биелэхгүй байж болно:\n\n· Таны санал болгосон үнэ ханш зах зээлийн ханштай тохирохгүй бол,\n\n· Зах зээлд сөрөг талын захиалга (эсрэг санал) байхгүй бол,\n\n· Танай дансанд хангалттай мөнгө эсвэл үнэт цаас байхгүй бол."
+            },
+            {
+              question: "Би үнэт цаас авах мөнгөө хэзээ төлөх вэ?",
+              answer: "Та үнэт цаасаа амжилттай зарсны дараа, арилжаа хийсэн өдрөөс хойш хоёр дахь өдөр (T+2) мөнгө тань ҮЦК-гийн дансаар дамжин таны холбосон банкны данс руу шилжинэ."
+            },
+            {
+              question: "Би үнэт цаас зарсан мөнгөө хэзээ авах вэ?",
+              answer: "Та үнэт цаасаа амжилттай зарсны дараа, арилжаа хийсэн өдрөөс хойш хоёр дахь өдөр (T+2) мөнгө тань ҮЦК-гийн дансаар дамжин таны холбосон банкны данс руу шилжинэ."
+            }
+          ]
+        },
+        account: {
+          title: "ДАНСНЫ ТАЛААР",
+          questions: [
+            {
+              question: "Хэрхэн данс нээх вэ?",
+              answer: "Та манай цахимаар болон \"New Horizon Tower\"-ийн 4 давхарт 401 тоотод биеэр ирж бүртгүүлэх боломжтой."
+            },
+            {
+              question: "Дансаа хэрхэн цэнэглэх вэ?",
+              answer: "Та https://trader.msecurities.mn/dashboard/app-д өөрийн бүртгэлээр нэвтэрч орсны дараа, баруун дээр байлах \"ОРЛОГО\" цонхонд дарж өөрийн аль дансаа цэнэглэх гэж байгаагаа сонгон гүйлгээг хийнэ. Гүйлгээний утгаа зөв бичихээ мартуузай."
+            },
+            {
+              question: "Орлого хийхдээ гүйлгээний утгаа буруу бичвэл яах вэ?",
+              answer: "Та өөрийн биеэр эсвэл манай майл хаяг руу алдаагаа засуулах өөрийн хүсэлтээ явуулах боломжтой."
+            }
+          ]
+        }
       }
     },
     navbar: {
