@@ -52,7 +52,7 @@ export const translations = {
       }
     },
     footer: {
-      tagline: "Your trusted partner in financial markets",
+      tagline: "A bridge to benefit from the world",
       quickLinks: "Quick Links",
       followUs: "Follow Us",
       contactUs: {
