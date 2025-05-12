@@ -4,9 +4,10 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 import { useDarkMode } from '../context/DarkModeContext';
+import { translations } from '../translations';
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { isDarkMode } = useDarkMode();
   const widgetRef = useRef<HTMLDivElement>(null);
 
@@ -228,7 +229,7 @@ const Footer = () => {
               <span className="font-medium text-gray-700 dark:text-gray-200">
                 {t('footer.contactUs.phone.label')}:
               </span>
-              {(t('footer.contactUs.phone.numbers') as string[]).map((number) => (
+              {(translations[language].footer.contactUs.phone.numbers as string[]).map((number) => (
                 <Link 
                   key={number}
                   href={`tel:${number}`}
