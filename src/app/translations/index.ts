@@ -392,6 +392,17 @@ export const translations = {
         description: "This page is currently not accessible.",
         backToHome: "Back to Home"
       }
+    },
+    download: {
+      title: "Download M-Securities App",
+      description: "Choose your platform to download our mobile app",
+      iosApp: "iOS App",
+      iosDesc: "Download from the App Store",
+      iosBtn: "Download for iOS",
+      androidApp: "Android App",
+      androidDesc: "Download from Google Play Store",
+      androidBtn: "Download for Android",
+      needHelp: "Need help? Contact our support team"
     }
   },
   mn: {
@@ -650,8 +661,7 @@ export const translations = {
           }
         }
       }
-    }, 
-    
+    },
     services: {
       title: "Үйлчилгээнүүд",
       broker: {
@@ -784,6 +794,17 @@ export const translations = {
         description: "Энэ хуудас түр ашиглах боломжгүй байна.",
         backToHome: "Нүүр хуудас руу буцах"
       }
+    },
+    download: {
+      title: "M-Securities Апп татах",
+      description: "Манай аппликейшнийг татах платформоо сонгоно уу",
+      iosApp: "iOS Апп",
+      iosDesc: "App Store-оос татах",
+      iosBtn: "iOS хувилбарыг татах",
+      androidApp: "Android Апп",
+      androidDesc: "Google Play Store-оос татах",
+      androidBtn: "Android хувилбарыг татах",
+      needHelp: "Тусламж хэрэгтэй юу? Манай дэмжлэгийн багтай холбогдоно уу"
     }
   }
 }; 

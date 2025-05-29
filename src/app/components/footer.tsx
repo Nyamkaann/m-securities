@@ -146,29 +146,17 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
               {t('footer.quickLinks')}
             </h4>
-            <Link 
-              href="/about" 
-              className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
-            >
-              {t('navbar.about')}
+            <Link href="/about/introduction" className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors">
+              {t('navbar.sections.introduction')}
             </Link>
-            <Link 
-              href="/services" 
-              className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
-            >
-              {t('navbar.services')}
+            <Link href="/research/news" className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors">
+              {t('navbar.sections.news')}
             </Link>
-            <Link 
-              href="/research" 
-              className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
-            >
-              {t('navbar.research')}
+            <Link href="/services/broker" className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors">
+              {t('navbar.sections.broker')}
             </Link>
-            <Link 
-              href="/faq" 
-              className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
-            >
-              {t('navbar.faqs')}
+            <Link href="/faq/common-questions" className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-400 transition-colors">
+              {t('navbar.sections.commonQuestions')}
             </Link>
           </div>
 
