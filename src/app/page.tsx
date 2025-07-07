@@ -3,6 +3,7 @@
 'use client';
 import Link from 'next/link';
 import Carousel from './components/carousel';
+import TradingViewWidget from './components/TradingViewWidget';
 import { useLanguage } from './context/LanguageContext';
 
 export default function Home() {
@@ -28,6 +29,13 @@ export default function Home() {
       {/* Hero Section with Carousel */}
       <section className="relative h-screen">
         <Carousel images={carouselImages} autoPlayInterval={6000} />
+      </section>
+
+      {/* TradingView Stock Heatmap Widget */}
+      <section className="w-full flex justify-center bg-black dark:bg-[#18181b]">
+        <div className="w-full max-w-6xl">
+          <TradingViewWidget />
+        </div>
       </section>
 
       {/* About Section */}
